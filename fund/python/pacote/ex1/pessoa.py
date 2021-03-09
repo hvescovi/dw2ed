@@ -8,12 +8,9 @@ class Pessoa:
     else:
       self.idade = idade
   def __str__(self):
-    return f'''
-    Nome: {self.nome},
-    idade: {self.idade}
-    '''
-
+    return f'''Nome: {self.nome}, idade: {self.idade}'''
 
 joao = Pessoa("João", 70)
 maria = Pessoa("Maria", 130)
-print(joao, maria)
+print(joao)
+print(maria)
