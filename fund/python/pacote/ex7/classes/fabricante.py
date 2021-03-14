@@ -1,5 +1,3 @@
-import config.param as c
-
 class Fabricante:
   def __init__(self, nome="", end="", CNPJ=""):
     self.nome = nome
