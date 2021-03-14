@@ -1,2 +1,0 @@
-Nome: João, idade: 70
-Nome: Maria, idade: 120
