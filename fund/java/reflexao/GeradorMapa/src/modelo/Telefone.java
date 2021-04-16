@@ -13,13 +13,13 @@ public class Telefone {
 	public void setNumero(String n) { numero = n; }
 	
 	// anotação para permitir acesso ao campo de outra forma
-	// similar a um "alias"
+	// similar a um "alias" em tempo de execução apenas
 	@NomePropriedade("codigoInternacional")
 	public String getCodigoPais() {	return codigoPais; }
 	
 	public void setCodigoPais(String codp) { codigoPais = codp; }
 	
-	// anotacao para ignorar este método 
+	// anotação para ignorar este método 
 	@Ignorar
 	public String getOperadora() { return operadora; }
 	

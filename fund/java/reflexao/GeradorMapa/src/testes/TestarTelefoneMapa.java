@@ -32,6 +32,5 @@ public class TestarTelefoneMapa {
 		System.out.println("Operadora: " + t.getOperadora());
 		System.out.println("Codigo do país: " + t.getCodigoPais());
 		
-		
 	}
 }

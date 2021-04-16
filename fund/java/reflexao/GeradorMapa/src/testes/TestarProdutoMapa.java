@@ -10,7 +10,7 @@ public class TestarProdutoMapa {
 	public static void main(String args[]) {
 	
         Produto p = new Produto();
-		
+		        
 		p.setNome("Caderno");
 		p.setCategoria("Material escolar");
 		p.setPreco(13.00);
