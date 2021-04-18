@@ -24,7 +24,7 @@ public class InformacaoClasse {
 		for (Class<?> clazz : lista) {
 			System.out.print(recuo+"|-> "+clazz.getName());
 			if (!clazz.isInterface()) { // se não é interface...
-				System.out.print(" (super)"); //... é a classe mãe
+				System.out.print(" (superclass)"); //... é a classe mãe
 			}
 			System.out.println(" ");
 			if (clazz != Object.class) {
