@@ -1,0 +1,32 @@
+body {
+    background-color: lightblue;
+}
+
+#titulo {
+    background-color: cyan;
+}
+.paragrafo {
+    background-color: green;
+}
+
+.linha {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.coluna {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+.verde {
+    background-color: green;
+}
+.amarelo {
+    background-color: yellow;
+}
+·azul {
+    background-color: blue;
+}
