@@ -1,7 +1,7 @@
 * Executando aplicação JDBC no Eclipse
 Exemplos do capítulo 19 (Packages) do livro dos Deitel, 10 edição
 
-Na pasta prints há screenshots das telas de configuração do projeto no Eclipse.
+Na pasta prints há screenshots das telas de configuração do projeto no Eclipse, bem como fotos da execução.
 
 Driver do mysql obtido em:
 https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.25
