@@ -20,3 +20,6 @@ db = SQLAlchemy(app) # vínculo com o SQLAlchemy
 # pip3 freeze
 # para instalar requisitos:
 # pip3 install -r requirements.txt
+# ou:
+# pip3 install flask
+# pip3 install flask_sqlalchemy
