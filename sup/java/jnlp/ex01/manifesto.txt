@@ -1,0 +1,1 @@
+Main-class: jnlpexample01.JNLPExample01;

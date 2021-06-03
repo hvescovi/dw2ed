@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="http://www.hylson.com/java/jnlp/" href="ex01.jnlp">
+ 
+     <information>
+          <title>JNLP Example</title>
+          <vendor>Java Code Geeks</vendor>
+          <homepage href="http://www.hylson.com/java/jnlp/" />
+          <description>JNLP Testing</description>
+     </information>
+ 
+     <security>
+          <all-permissions/>
+     </security>
+ 
+     <resources>
+          <j2se version="1.6+" />
+          <jar href="ex01.jar" />
+     </resources>
+ 
+     <application-desc main-class="jnlpexample01.JNLPExample01" />
+</jnlp>
