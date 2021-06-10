@@ -7,7 +7,9 @@ import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 
 public class PreparedStatementComRowSet {
-
+	// JdbcRowSet: banco de dados sempre conectado
+	// CachedRowSet: conexão apenas na operação
+	
 	final String DATABASE_URL = "jdbc:mysql://localhost/books";
 	final String USERNAME = "root";
 	final String PASSWORD = "testando";
@@ -60,12 +62,10 @@ public class PreparedStatementComRowSet {
 		}
 	}
 	
-    public static void main(String[] args) {
-				
+    public static void main(String[] args) { 
 		PreparedStatementComRowSet gen = new PreparedStatementComRowSet();
-		//gen.exibir("", new String[0]);
 		
+        gen.exibir("", new String[0]);
 		gen.exibir("WHERE FirstName = ?", new Object[] {"Abbey"});
-				
 	}	
 }
