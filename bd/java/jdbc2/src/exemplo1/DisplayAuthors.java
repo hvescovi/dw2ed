@@ -30,6 +30,13 @@ public class DisplayAuthors {
 			for (int i = 1; i <= cols; i++) {
 				System.out.printf("%-8s\t", md.getColumnName(i));
 			}
+			// https://docs.oracle.com/javase/7/docs/api/java/util/Formatter.html#syntax			
+			/*
+			 * %: especificador de formato
+			 * -: alinhamento à esquerda
+			 * 8: tamanho mínimo da coluna
+			 * \t: tabulação após a exibição da coluna
+			 */
 			System.out.println();
 			
 			while (result.next()) {

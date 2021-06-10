@@ -7,9 +7,6 @@ import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 
 public class PreparedStatementComRowSet {
-	// JdbcRowSet: banco de dados sempre conectado
-	// CachedRowSet: conexão apenas na operação
-	
 	final String DATABASE_URL = "jdbc:mysql://localhost/books";
 	final String USERNAME = "root";
 	final String PASSWORD = "testando";
