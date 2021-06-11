@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import exemplo4.modelo.Author;
 
 public class DAO {
-
-	
-	
-	
 		
 		public void fechar() {
 		}

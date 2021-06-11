@@ -7,6 +7,7 @@ import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 
 public class PreparedStatementComRowSet {
+	
 	final String DATABASE_URL = "jdbc:mysql://localhost/books";
 	final String USERNAME = "root";
 	final String PASSWORD = "testando";
@@ -18,12 +19,10 @@ public class PreparedStatementComRowSet {
 			+ " INNER JOIN Titles"
 			+ " ON AuthorISBN.ISBN = Titles.ISBN ";
 	
+	JdbcRowSet rowSet;
+	
 	public void exibir(String filtro, Object[] valores) {
-		try {
-			JdbcRowSet rowSet = RowSetProvider.newFactory().createJdbcRowSet();
-			rowSet.setUrl(DATABASE_URL);
-			rowSet.setUsername(USERNAME);
-			rowSet.setPassword(PASSWORD);
+		try {			
 			rowSet.setCommand(SELECT_QUERY + filtro);
 			
 			// suporte a valores do tipo String e Integer
@@ -59,10 +58,21 @@ public class PreparedStatementComRowSet {
 		}
 	}
 	
-    public static void main(String[] args) { 
-		PreparedStatementComRowSet gen = new PreparedStatementComRowSet();
+    public static void main(String[] args) {
+    	// cria instância do programa
+    	PreparedStatementComRowSet gen = new PreparedStatementComRowSet();
 		
-        gen.exibir("", new String[0]);
-		gen.exibir("WHERE FirstName = ?", new Object[] {"Abbey"});
+    	try {
+	    	gen.rowSet = RowSetProvider.newFactory().createJdbcRowSet();
+	    	gen.rowSet.setUrl(gen.DATABASE_URL);
+	    	gen.rowSet.setUsername(gen.USERNAME);
+	    	gen.rowSet.setPassword(gen.PASSWORD);
+			
+	        gen.exibir("", new String[0]);
+			gen.exibir("WHERE FirstName = ?", new Object[] {"Abbey"});
+			
+    	} catch (Exception ex) {
+    		ex.printStackTrace();
+    	}
 	}	
 }

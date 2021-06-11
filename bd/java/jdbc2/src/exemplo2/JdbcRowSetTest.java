@@ -16,17 +16,21 @@ public class JdbcRowSetTest {
 		
 		final String SELECT_QUERY = 
 				"SELECT LastName, FirstName, Title"
-				+ " FROM Authors INNER JOIN AuthorISBN"
+				+ " FROM Authors"
+				+ " INNER JOIN AuthorISBN"
 				+ " ON Authors.AuthorID = AuthorISBN.AuthorID"
 				+ " INNER JOIN Titles"
 				+ " ON AuthorISBN.ISBN = Titles.ISBN"
 				+ " ORDER BY Titles.Title";
 		
 		try {
+			// JdbcRowSet => conexão persistente
+			// CacheRowSet => conexão eventual
 			JdbcRowSet rowSet = RowSetProvider.newFactory().createJdbcRowSet();
 			rowSet.setUrl(DATABASE_URL);
 			rowSet.setUsername(USERNAME);
 			rowSet.setPassword(PASSWORD);
+			
 			rowSet.setCommand(SELECT_QUERY);
 			rowSet.execute();
 			
