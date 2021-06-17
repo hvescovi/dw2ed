@@ -1,4 +1,4 @@
-package com.algaworks.veiculos.dominio;
+package com.algaworks.dominio;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tab_veiculo")
+@Table(name="veiculo")
 public class Veiculo {
 
 	private Long codigo;

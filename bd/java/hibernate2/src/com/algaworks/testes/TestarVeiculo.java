@@ -7,8 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
+import com.algaworks.dominio.Veiculo;
 import com.algaworks.utils.JpaUtil;
-import com.algaworks.veiculos.dominio.Veiculo;
 
 public class TestarVeiculo {
 
@@ -77,7 +77,7 @@ Hibernate: insert into tab_veiculo
 		// atualizando um dado
 		System.out.println("ALTERANDO");
 		tx = manager.getTransaction();
-		tx.begin();
+		tx.begin(); // transação também para encontrar registros
 		v = manager.find(Veiculo.class, maiorCodigo);
 		System.out.println("Valor antigo: " + v.getValor());
 		v.setValor(new BigDecimal(500));
