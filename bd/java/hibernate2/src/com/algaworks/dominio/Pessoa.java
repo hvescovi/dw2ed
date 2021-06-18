@@ -11,8 +11,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="pessoa")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="tipo")
+//1 tabela para cada classe (abstrata e concretas)
+@Inheritance(strategy=InheritanceType.JOINED)
+
+// SINGLE_TABLE: tabela única para todas as classes
+//   nesse caso, há um campo discriminatório (tipo = "C", tipo = "F")
+// TABLE_PER_CLASS: uma tabela para cada classe concreta
+//   repetição dos atributos da superclasse nas subclasses
+
+
 public abstract class Pessoa {
 	
 	private Long id;

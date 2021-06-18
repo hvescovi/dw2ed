@@ -1,21 +1,18 @@
 package com.algaworks.dominio;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="veiculo_incrementado")
-public class VeiculoIncrementado {
+@Table(name="veiculo_com_dono")
+public class VeiculoComDono {
 
 	private Long codigo;
 	private String fabricante;
@@ -23,10 +20,8 @@ public class VeiculoIncrementado {
 	private Integer anoFabricacao;
 	private Integer anoModelo;
 	private BigDecimal valor;
-
-	// HashSet em vez de ArrayList
-	// para não permitir repetição de acessório
-	private Set<Acessorio> acessorios = new HashSet<Acessorio>();
+	
+	private Proprietario proprietario;
 	
 	@Id
 	@GeneratedValue
@@ -90,7 +85,7 @@ public class VeiculoIncrementado {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		final VeiculoIncrementado other = (VeiculoIncrementado) obj;
+		final VeiculoComDono other = (VeiculoComDono) obj;
 		if (codigo == null) {
 			if (other.codigo != null) {
 				return false;
@@ -100,15 +95,12 @@ public class VeiculoIncrementado {
 		}
 		return true;
 	}
-	
-	@ManyToMany
-/*	@JoinTable(name = "acessorios_do_veiculo",
-	  joinColumns=@JoinColumn(name="cod_veiculo"),
-	  inverseJoinColumns=@JoinColumn(name="cod_acessorio"))*/
-	public Set<Acessorio> getAcessorios() {
-		return acessorios;
+	@ManyToOne
+	@JoinColumn(name = "cod_proprietario")
+	public Proprietario getProprietario() {
+		return proprietario;
 	}
-	public void setAcessorios(Set<Acessorio> acessorios) {
-		this.acessorios = acessorios;
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
 	}	
 }

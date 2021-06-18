@@ -1,14 +1,15 @@
 package com.algaworks.dominio;
 
 import java.util.List;
-
+//import com.algaworks.dominio.Veiculo;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-// pg 77, seção 4.10
+// pgs 75 e 77, seção 4.10
 
 @Entity
 @Table(name = "proprietario")
@@ -19,7 +20,7 @@ public class Proprietario {
 	private String telefone;
 	private String email;
 	
-	private List<Veiculo> veiculos;
+	private List<VeiculoComDono> veiculos;
 	
 	@Id
 	@GeneratedValue
@@ -48,10 +49,10 @@ public class Proprietario {
 		this.email = email;
 	}
 	@OneToMany(mappedBy = "proprietario")
-	public List<Veiculo> getVeiculos() {
+	public List<VeiculoComDono> getVeiculos() {
 		return veiculos;
 	}
-	public void setVeiculos(List<Veiculo> veiculos) {
+	public void setVeiculos(List<VeiculoComDono> veiculos) {
 		this.veiculos = veiculos;
 	}
 	
