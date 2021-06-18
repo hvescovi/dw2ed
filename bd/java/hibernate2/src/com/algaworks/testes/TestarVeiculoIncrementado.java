@@ -39,15 +39,11 @@ public class TestarVeiculoIncrementado {
 		v1.getAcessorios().add(a2);
 		manager.persist(v1);
 
-
 		tx.commit();
 		
-		//manager.refresh(v1);
-
 		System.out.println("Carro: ");
 
 		for (Acessorio acs : v1.getAcessorios()) {
-			// System.out.print(mv.getCodigo());
 			System.out.print("(");
 			System.out.print(acs.getCodigo());
 			System.out.println(") " + acs.getDescricao());			
