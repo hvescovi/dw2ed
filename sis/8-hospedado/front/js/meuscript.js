@@ -4,8 +4,8 @@ $(function() { // quando o documento estiver pronto/carregado
     // controle para ver se atualiza tela de exames realizados
     inserido_exrel = false;
 
-    //var urlX = 'http://hylsonvescovi.pythonanywhere.com/';
-    var urlX = 'http://localhost:5000';
+    var urlX = 'http://hylsonvescovi.pythonanywhere.com/';
+    //var urlX = 'http://localhost:5000';
     // função para exibir pessoas na tabela
     function exibir_pessoas() {
         $.ajax({
