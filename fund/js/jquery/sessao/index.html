@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+</head>
+<body>
+    
+    <!-- https://stackoverflow.com/questions/38344181/how-can-i-create-session-in-jquery -->
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <button id="geral">Usuário comum</button>
+    <button id="admin">Perfil Admin</button>
+
+    <br>
+    Perfil atual: <input id="mensagem_perfil" value="">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery.session.js"></script>
+    
+    <!-- plugin jquery obtido de:
+        https://raw.githubusercontent.com/AlexChittock/JQuery-Session-Plugin/master/jquery.session.js 
+    -->
+    <script src="meuscript.js"></script>
+
+    <div id="secreto" class="d-none">
+        <a href=#> LINK APENAS PARA O ADMIN :-) </a>
+    </div>
+</body>
+</html>
