@@ -1,0 +1,1 @@
+stress: teste de estresse em back-end flask/python/sqlalchemy
