@@ -47,3 +47,7 @@ if __name__ == "__main__":
 # no linux: 
 # $ time python3 modelo.py (para verificar tempo de execução)        
 # $ top (para acompanhar esforço de CPU)
+# stress do backend:
+# for i in {1..10}; do ./vai.sh; done
+# vai.sh: curl localhost:5000/listar_pessoas &
+# bibliotecas: names e random
