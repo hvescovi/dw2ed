@@ -28,7 +28,6 @@ if __name__ == "__main__":
         telefone = "47 98822 2531")
     p3 = Pessoa(nome = "Joana Tristão", email = "jotristao@gmail.com", 
         telefone = "47 99123 1289")        
-            
     
     # persistir
     db.session.add(p1)
@@ -46,8 +45,27 @@ if __name__ == "__main__":
     for pessoa in pessoas:
         print(pessoa)
 
+    # localizar uma pessoa pelo ID
+    primeira = Pessoa.query.get(1)
+    print("Primeira pessoa: " + str(primeira))
 
+    # atualizar os dados de uma pessoa já carregada na memória (em objeto)
+    primeira.email = "josilva@hotmail.com" # original = gmail
+    db.session.commit()
+    print(primeira)
+
+    #Pessoa.query.update({Pessoa.email : Pessoa.email + "(ALTERAR - inválido)"})
+    #db.session.commit()
+
+    #update(Pessoa).\
+    #    where(Pessoa.email.match("%hotmail%")).\
+    #    values({Pessoa.email : Pessoa.email + "(ALTERAR - inválido)"})
+    #db.session.commit()
+
+    # exibir as pessoas
+    #[print(str(p) for p in db.session.query(Pessoa).all())] 
 
 # referências: 
 # https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/
 # https://stackoverflow.com/questions/4926757/sqlalchemy-query-where-a-column-contains-a-substring
+# https://stackoverflow.com/questions/6750017/how-to-query-database-by-id-using-sqlalchemy
