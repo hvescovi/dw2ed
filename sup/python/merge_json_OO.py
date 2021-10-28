@@ -17,7 +17,7 @@ class Pessoa(db.Model):
 
     id = db.Column(
         db.Integer, 
-        db.Sequence('foo_id_seq', start=1001, increment=1),
+        #db.Sequence('foo_id_seq', start=1001, increment=1),
         primary_key=True
     )
     nome = db.Column(db.String(50))
@@ -41,7 +41,7 @@ class Pessoa(db.Model):
 class Vendedor(Pessoa):
     # https://stackoverflow.com/questions/23752892/sqlalchemy-deleting-in-multitable-polymorphism
     # https://stackoverflow.com/questions/47216677/sqlalchemy-joined-inheritance-fast-bulk-deletion-of-child-objects
-    id = db.Column(db.Integer, db.ForeignKey('pessoa.id', ondelete="CASCADE"), primary_key=True)
+    #id = db.Column(db.Integer, db.ForeignKey('pessoa.id', ondelete="CASCADE"), primary_key=True)
 
     matricula = db.Column(db.String(50))
 
@@ -53,12 +53,22 @@ class Vendedor(Pessoa):
         return super().__str__() + f', {self.matricula}'
     def json(self):
         json1 = super().json()
-        json2 = json1.update({"matricula":self.matricula})
+        json1.update({"matricula":self.matricula})
+        return json1
 
+# apagar o arquivo, se houver
+if os.path.exists(arquivobd):
+  os.remove(arquivobd)
+db.create_all()
 p1 = Pessoa(nome = "Joao da Silva", telefone = "47 9 9239 2342")
 v1 = Vendedor(nome = "Maria de Oliveira", 
               telefone = "47 9 8842 1243",
               matricula = "132346")
+db.session.add(p1)              
+db.session.add(v1)
+db.session.commit()
+
+print(p1.json())
 print(v1.json())
 '''
 @app.route("/")
