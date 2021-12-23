@@ -1,8 +1,10 @@
 if __name__ == "__main__":
   # configuração para permitir importação de arquivos do diretório superior
+  # https://codeolives.com/2020/01/10/python-reference-module-in-parent-directory/
   import os, sys
-  atual = os.path.abspath(".") #  retorna o diretório superior
-  sys.path.append(atual) # inclui esse diretório no path (caminhos conhecidos)
+  currentdir = os.path.dirname(os.path.realpath(__file__)) # /home/friend/01-github/dw2ed/fund/python/pacote/ex4/classes
+  parentdir = os.path.dirname(currentdir) # /home/friend/01-github/dw2ed/fund/python/pacote/ex4
+  sys.path.append(parentdir)
 
 import config 
 

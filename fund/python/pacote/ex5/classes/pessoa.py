@@ -1,3 +1,7 @@
+# o presente arquivo não pode ser executado (dá erro),
+# mas este arquivo não precisa ser executado, 
+# o teste da classe está na pasta teste
+
 import config.param as c
 
 class Pessoa:

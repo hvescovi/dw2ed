@@ -1,5 +1,8 @@
-from teste import *
+# importa todos os testes disponíveis, e
+# declarados no __init__ da pasta/pacote teste
+from teste import * 
 
+# executa os testes
 teste_Pessoa.run()
 teste_Fabricante.run()
 teste_Aplicativo.run()
