@@ -1,0 +1,23 @@
+@startuml
+
+class Quarto {
+  +String nome
+  +String dimensoes
+}
+
+class Mobilia {
+  +String nome
+  +String funcao
+  +String material
+  +Quarto quarto
+}
+
+class Casa {
+  +String formato
+  +List of Quarto quartos
+}
+
+Mobilia o-- Quarto
+Casa *-- Quarto
+
+@enduml
