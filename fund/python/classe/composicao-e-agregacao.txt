@@ -17,7 +17,7 @@ class Casa {
   +List of Quarto quartos
 }
 
-Mobilia o-- Quarto
+Quarto o-- Mobilia
 Casa *-- Quarto
 
 @enduml
