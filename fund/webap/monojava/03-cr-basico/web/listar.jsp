@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
         import="java.util.*"
-        import="modelo.Pessoa"%>
+        import="modelo.Pessoa" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,20 +15,22 @@
     </head>
     <body>
         <h1>Listagem de pessoas</h1>
-        
-        <% 
+        <%
             
         // goncalves2007, pg 420
-        List registros = ArrayList<Pessoa> request.getAttribute("registros");
-        for (Iterator i = registros.iterator(); i.hasNext();) {
+        ArrayList<Pessoa> registros = (ArrayList<Pessoa>) request.getAttribute("registros");
+                 
+        for (Pessoa i : registros) {
         
         %>
-        
+
         <%= i.getNome() %>, <%= i.getEmail() %>, <%= i.getTelefone() %> <br>
-        
+
         <%
             }
         %>
-      
+
+        Fim da listagem
+
     </body>
 </html>

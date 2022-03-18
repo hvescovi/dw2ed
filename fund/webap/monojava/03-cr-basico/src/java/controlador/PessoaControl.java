@@ -66,6 +66,7 @@ public class PessoaControl extends HttpServlet {
         } else { // exibe todos
             // obtém dados
             ArrayList<Pessoa> registros = pdao.retornarPessoas();
+            //Pessoa registros = new Pessoa("maria", "ma@gmail.com", "99122991");
             // insere no request
             request.setAttribute("registros", registros);
             // encaminha a resposta 
@@ -96,6 +97,7 @@ public class PessoaControl extends HttpServlet {
 
         request.setAttribute("msg", "Pessoa incluída com sucesso");
         getServletContext().getRequestDispatcher("/mensagem.jsp").forward(request, response);            
+        
         //response.sendRedirect("mensagem.jsp");
 
     }

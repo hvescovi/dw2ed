@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import model.Pessoa;
 
 /**
  *
@@ -36,8 +35,7 @@ public class Controller extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             //encaminha a resposta para a página que exibe as pessoas
-            getServletContext().getRequestDispatcher("/listar_pessoas.jsp").forward(request, response);            
-            
+            getServletContext().getRequestDispatcher("/listar_pessoa.jsp").forward(request, response);                        
         }
     }
 
