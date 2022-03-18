@@ -14,7 +14,7 @@
     <body>
         <h1>Mensagem</h1>
         
-        <h3> <%= session.getAttribute("msg") %> </h3>
+        <h3> <%= (String) request.getAttribute("msg") %> </h3>
         
         <a href="index.html">Retornar ao início</a>
         
