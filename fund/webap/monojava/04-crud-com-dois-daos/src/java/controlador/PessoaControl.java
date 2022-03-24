@@ -4,7 +4,7 @@ package controlador;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-import dao.memoria.PessoaDAO;
+import dao.PessoaDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -47,17 +47,35 @@ public class PessoaControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String especificador = request.getParameter("p");
-        if (especificador != null) {
+        // ações get:
+        // sem parâmetro: recuperar todos os elementos
+        // com parâmetro r: recuperar elemento individual
+        // com parâmetro d: excluir elemento
+        // com parâmetro f: abrir formulário de inclusão
+        
+        String retrieve = request.getParameter("r");
+        String delete = request.getParameter("d");
+        String form = request.getParameter("f");
+        if (retrieve != null) {
             // exibe alguém específico?
             try ( PrintWriter out = response.getWriter()) {
                 /* TODO output your page here. You may use following sample code. */
                 out.println("deve exibir alguém específico");
             }
+        } else if (delete != null) {
+            if (pdao.removerPessoa(delete)) {
+                request.setAttribute("msg", "Pessoa removida com sucesso");
+            } else {
+                request.setAttribute("msg", "Ocorreu algum erro ao excluir a pessoa");
+            }
+            getServletContext().getRequestDispatcher("/mensagem.jsp")
+                               .forward(request, response);                                
+        } else if (form != null) {
+             getServletContext().getRequestDispatcher("/form.jsp")
+                               .forward(request, response);   
         } else { // exibe todos
             // obtém dados
             ArrayList<Pessoa> registros = pdao.retornarPessoas();
-            //Pessoa registros = new Pessoa("maria", "ma@gmail.com", "99122991");
             // insere no request
             request.setAttribute("registros", registros);
             // encaminha a resposta 
@@ -79,11 +97,15 @@ public class PessoaControl extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // configuração para corrigir questões de acento
+        request.setCharacterEncoding("utf8");
+        
+        String cpf = request.getParameter("nome");
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String telefone = request.getParameter("telefone");
 
-        Pessoa nova = new Pessoa(nome, email, telefone);
+        Pessoa nova = new Pessoa(cpf, nome, email, telefone);
         pdao.incluirPessoa(nova);
 
         request.setAttribute("msg", "Pessoa incluída com sucesso");
