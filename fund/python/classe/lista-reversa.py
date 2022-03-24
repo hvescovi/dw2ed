@@ -5,15 +5,15 @@ class Quarto:
         if casa is None: # composicao
             raise Exception("Um quarto deve ser criado em uma casa!")        
         self.casa = casa 
-        self.mobilias = [] # mapeamento reverso
+        self.mobilias = [] # lista reversa
     def __str__(self):
         s = f'Quarto: {self.nome}, {self.dimensoes}, em: {str(self.casa)}'
         if self.mobilias:
             s += ", possui mobília(s): "
             for m in self.mobilias:
-                # não mostra casa para não entrar em loop
                 s += f'{m.nome}, {m.funcao}, {m.material}, ' 
             s = s[:-2] # remove a última vírgula e espaço
+            
         return s
         
 class Mobilia:

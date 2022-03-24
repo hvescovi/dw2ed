@@ -7,6 +7,8 @@ class Pessoa(db.Model):
     email = db.Column(db.String(254))
     telefone = db.Column(db.String(254))
 
+    exames = db.relationship("ExameRealizado", backref="pessoas")
+
     # método para expressar a pessoa em forma de texto
     def __str__(self):
         s = self.nome + "[id="+str(self.id)+ "], " +\
@@ -14,17 +16,19 @@ class Pessoa(db.Model):
         return s
 
 class ExameRealizado(db.Model):
-    nome = db.Column(db.String(254), primary_key=True) # nome do exame
-    data = db.Column(db.String(254), primary_key=True) # data do exame
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(254)) # nome do exame
+    data = db.Column(db.String(254)) # data do exame
     resultado = db.Column(db.String(254)) # apenas o valor
     
     # pessoa que fez o exame; não pode ser nulo (composição!)
-    pessoa_id = db.Column(db.Integer, db.ForeignKey(Pessoa.id), nullable=False, primary_key=True)
-    pessoa = db.relationship("Pessoa", backref="exames")
-    
+    pessoa_id = db.Column(db.Integer, db.ForeignKey(Pessoa.id), 
+                          nullable=False)
+    pessoa = db.relationship("Pessoa")
+        
     def __str__(self): # expressão da classe em forma de texto
-        return f"{self.nome}, {self.data}, {self.resultado}, " + \
-            f"{self.pessoa}"
+        return f"{self.id}) {self.nome}, {self.data}, {self.resultado}, " + \
+            f"{str(self.pessoa)}"
 
 # teste    
 if __name__ == "__main__":
