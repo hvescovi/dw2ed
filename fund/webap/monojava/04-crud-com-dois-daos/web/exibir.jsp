@@ -14,26 +14,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Listagem de pessoas</h1>
+        <h1>Exibir pessoa</h1>
         <%
             
         // goncalves2007, pg 420
-        ArrayList<Pessoa> registros = (ArrayList<Pessoa>) request.getAttribute("registros");
+        Pessoa i = (Pessoa) request.getAttribute("alguem");
                  
-        for (Pessoa i : registros) {
-        
         %>
 
-        <%= i.getCpf() %>, <%= i.getNome() %>, <%= i.getEmail() %>, <%= i.getTelefone() %> 
+        CPF: <%= i.getCpf() %> <br> 
+        Nome: <%= i.getNome() %> <br>
+        Email: <%= i.getEmail() %> <br>
+        Telefone: <%= i.getTelefone() %> 
         
-        | <a href="pessoa?d=<%= i.getCpf() %>">remover</a> | 
-        <a href="pessoa?r=<%= i.getCpf() %>">exibir |</a><br>
+        <a href="pessoa?d=<%= i.getCpf() %>">remover</a><br>
+        
 
-        <%
-            }
-        %>
-
-        Fim da listagem
+       
 
     </body>
 </html>

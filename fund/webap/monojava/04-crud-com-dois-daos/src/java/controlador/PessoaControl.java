@@ -56,11 +56,14 @@ public class PessoaControl extends HttpServlet {
         String retrieve = request.getParameter("r");
         String delete = request.getParameter("d");
         String form = request.getParameter("f");
+        
         if (retrieve != null) {
             // exibe alguém específico?
             try ( PrintWriter out = response.getWriter()) {
-                /* TODO output your page here. You may use following sample code. */
-                out.println("deve exibir alguém específico");
+                Pessoa p = pdao.buscarPessoa(retrieve);
+                request.setAttribute("alguem", p);
+                getServletContext().getRequestDispatcher("/exibir.jsp")
+                               .forward(request, response); 
             }
         } else if (delete != null) {
             if (pdao.removerPessoa(delete)) {
@@ -100,7 +103,7 @@ public class PessoaControl extends HttpServlet {
         // configuração para corrigir questões de acento
         request.setCharacterEncoding("utf8");
         
-        String cpf = request.getParameter("nome");
+        String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String telefone = request.getParameter("telefone");

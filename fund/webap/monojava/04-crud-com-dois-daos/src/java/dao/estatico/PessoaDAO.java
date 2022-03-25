@@ -11,6 +11,7 @@ import modelo.Pessoa;
 
 public class PessoaDAO implements PessoaDAOInterface{
 
+    @Override
     public ArrayList<Pessoa> retornarPessoas() {
         ArrayList<Pessoa> retorno = new ArrayList<Pessoa>();
         retorno.add(new Pessoa("12345678910", "João da Silva", 
@@ -18,20 +19,24 @@ public class PessoaDAO implements PessoaDAOInterface{
         return retorno;
     }
 
+    @Override
     public boolean incluirPessoa(Pessoa nova) {
         return true;
     }
 
-    public boolean removerPessoa(String nome) {
+    @Override
+    public boolean removerPessoa(String cpf) {
         return true;
     }
     
-    public Pessoa buscarPessoa(String nome) {
+    @Override
+    public Pessoa buscarPessoa(String cpf) {
         return new Pessoa("12345678910", "João da Silva", 
                 "josilva@gmail.com", "47 9 92332 3332");
     } 
     
-    public boolean AtualizarPessoa(String nome) {
+    @Override
+    public boolean AtualizarPessoa(Pessoa novosDados) {
         return true;
     }
 

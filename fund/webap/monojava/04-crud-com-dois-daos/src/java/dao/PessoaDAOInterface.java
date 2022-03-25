@@ -10,5 +10,7 @@ import modelo.Pessoa;
 public interface PessoaDAOInterface {    
     public ArrayList<Pessoa> retornarPessoas();	
     public boolean incluirPessoa(Pessoa nova);	
-    public boolean removerPessoa(String nome);	     
+    public boolean removerPessoa(String nome);	   
+    public Pessoa buscarPessoa(String nome);
+    public boolean AtualizarPessoa(Pessoa novosDados);
 }
