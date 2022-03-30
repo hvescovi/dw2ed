@@ -5,5 +5,5 @@
 
 package dao;
 
-public class PessoaDAO extends dao.estatico.PessoaDAO {    
+public class PessoaDAO extends dao.memoria.PessoaDAO {    
 }

@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        Arquivo enviado!
+        
         <%= request.getAttribute("message") %>
         
         <a href="index.html">Retornar</a>

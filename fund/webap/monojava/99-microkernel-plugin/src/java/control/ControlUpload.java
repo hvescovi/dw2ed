@@ -10,11 +10,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -72,40 +76,36 @@ public class ControlUpload extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        /*
-        String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
         Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-        InputStream fileContent = filePart.getInputStream();
+        
+        String uploadPath = "/tmp/plugin";
+        File uploadDir = new File(uploadPath);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdir();
+        }
 
-        File file = new File("/tmp/", fileName);
-        //File file = new File("/tmp/", "somefilename.ext");
-
+        File file = new File(uploadPath, fileName);
+        
         try ( InputStream input = filePart.getInputStream()) {
             Files.copy(input, file.toPath());
         } catch (Exception ex) {
-            System.out.println("Erro: "+ex.getMessage());
+            System.out.println("Erro: " + ex.getMessage());
         }
 
-         */
         // remover extensão para descobrir nome da classe
-        //String fileNameWithoutExtension = fileName.substring(0, fileName.indexOf("."));
-        String fileNameWithoutExtension = "AllCaps";
-
+        String fileNameWithoutExtension = fileName.substring(0, fileName.indexOf("."));
+        
         // carregar classe
         
-        File f = new File("file:/home/friend/01-github/dw2ed/fund/webap/monojava/98-microkernel-class-for-loading/build/classes");
-        URL[] cp = {f.toURI().toURL()};
-        URLClassLoader urlcl = new URLClassLoader(cp);
-        try {
-            Class myclass = urlcl.loadClass("plugin." + fileNameWithoutExtension);
-            //request.setAttribute("message", "File " + fileName + " has uploaded");
-            
-            request.setAttribute("message", "File " + fileNameWithoutExtension + " has uploaded");
-            getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ControlUpload.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //
+        // PARA FAZER!!!!! TESTE PRONTO NO TesteLoad.java
+        //
+        
+        // inserir mensagem no request como atributo    
+        request.setAttribute("message", "File " + fileNameWithoutExtension + " has been uploaded.");
+        // encaminhar para a página JSP
+        getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
 
     }
 
