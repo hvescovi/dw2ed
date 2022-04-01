@@ -5,7 +5,7 @@ import os
 
 # configurações
 app = Flask(__name__)
-path = os.path.dirname(os.path.abspath(__file__)) # sugestao do Kaue
+path = os.path.dirname(os.path.abspath(__file__))
 arquivobd = os.path.join(path, 'profissoes.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+arquivobd
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # remover warnings
