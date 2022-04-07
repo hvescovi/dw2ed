@@ -24,10 +24,12 @@
         
         %>
 
-        <%= i.getCpf() %>, <%= i.getNome() %>, <%= i.getEmail() %>, <%= i.getTelefone() %> 
+        <%= i.getCpf() %>, <%= i.getNome() %>, 
+        <%= i.getEmail() %>, <%= i.getTelefone() %> 
         
         | <a href="pessoa?op=d&q=<%= i.getCpf() %>">remover</a> | 
-        <a href="pessoa?op=r&q=<%= i.getCpf() %>">exibir |</a><br>
+        <a href="pessoa?op=r&q=<%= i.getCpf() %>">exibir</a> | 
+        <a href="pessoa?op=a&q=<%= i.getCpf() %>">atualizar</a> <br>
 
         <%
             }

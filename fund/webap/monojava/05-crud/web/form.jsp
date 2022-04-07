@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Adicionar pessoa</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Adicionar pessoa</h1>
         <form action="pessoa" method="post">
             CPF: <input type="text" name="cpf" value="12345678910"> <br>
             Nome: <input type="text" name="nome" value="João da Silva"> <br>

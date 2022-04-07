@@ -52,29 +52,28 @@ public class PessoaControl extends HttpServlet {
         // com parâmetro r: recuperar elemento individual
         // com parâmetro d: excluir elemento
         // com parâmetro f: abrir formulário de inclusão
-        
         String op = request.getParameter("op");
-        
+
         //String retrieve = request.getParameter("r");
         //String delete = request.getParameter("d");
         //String form = request.getParameter("f");
-        
         if (op == null) { // exibe todos
             // obtém dados
             ArrayList<Pessoa> registros = pdao.retornarPessoas();
             // insere no request
             request.setAttribute("registros", registros);
             // encaminha a resposta 
-            getServletContext().getRequestDispatcher("/listar.jsp").forward(request, response);            
+            getServletContext().getRequestDispatcher("/listar.jsp").forward(request, response);
         } else if (op.equals("r")) { // exibe alguém específico
-            
-            try ( PrintWriter out = response.getWriter()) {
-                String quem = request.getParameter("q");
-                Pessoa p = pdao.buscarPessoa(quem);
-                request.setAttribute("alguem", p);
-                getServletContext().getRequestDispatcher("/exibir.jsp")
-                               .forward(request, response); 
-            }
+            // obtém o parâmetro de quem vai ser recuperado
+            String quem = request.getParameter("q");
+            // localiza o registro
+            Pessoa p = pdao.buscarPessoa(quem);
+            // insere o registro como atributo na requisição
+            request.setAttribute("alguem", p);
+            // encaminha a resposta para a página exibir
+            getServletContext().getRequestDispatcher("/exibir.jsp")
+                    .forward(request, response);
         } else if (op.equals("d")) {
             String quem = request.getParameter("q");
             if (pdao.removerPessoa(quem)) {
@@ -83,10 +82,21 @@ public class PessoaControl extends HttpServlet {
                 request.setAttribute("msg", "Ocorreu algum erro ao excluir a pessoa");
             }
             getServletContext().getRequestDispatcher("/mensagem.jsp")
-                               .forward(request, response);                                
+                    .forward(request, response);
         } else if (op.equals("f")) {
-             getServletContext().getRequestDispatcher("/form.jsp")
-                               .forward(request, response);   
+            getServletContext().getRequestDispatcher("/form.jsp")
+                    .forward(request, response);
+        } else if (op.equals("a")) { // a = atualização/GET = parte 1: 
+            // abrir o formulário de edição
+            // obtém o parâmetro de quem vai ser alterado
+            String quem = request.getParameter("q");
+            // localiza o registro
+            Pessoa p = pdao.buscarPessoa(quem);
+            // insere o registro como atributo na requisição
+            request.setAttribute("alguem", p);
+            // encaminha para a página de alteração
+            getServletContext().getRequestDispatcher("/form_editar.jsp")
+                    .forward(request, response);
         }
 
     }
@@ -105,18 +115,34 @@ public class PessoaControl extends HttpServlet {
 
         // configuração para corrigir questões de acento
         request.setCharacterEncoding("utf8");
-        
+
+        String op = request.getParameter("op");
+
         String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String telefone = request.getParameter("telefone");
 
-        Pessoa nova = new Pessoa(cpf, nome, email, telefone);
-        pdao.incluirPessoa(nova);
+        if (op == null) { // incluir pessoa é a opção padrão
 
-        request.setAttribute("msg", "Pessoa incluída com sucesso");
-        getServletContext().getRequestDispatcher("/mensagem.jsp").forward(request, response);            
-        //response.sendRedirect("mensagem.jsp");
+            Pessoa nova = new Pessoa(cpf, nome, email, telefone);
+            if (pdao.incluirPessoa(nova)) {
+                request.setAttribute("msg", "Pessoa incluída com sucesso");
+            } else {
+                request.setAttribute("msg", "Ocorreu um erro ao incluir a pessoa :-(");
+            }
+            getServletContext().getRequestDispatcher("/mensagem.jsp").forward(request, response);
+            
+        } else if (op.equals("put")) { // atualização de dados da pessoa
+
+            Pessoa atualizada = new Pessoa(cpf, nome, email, telefone);
+            if (pdao.atualizarPessoa(atualizada)) {
+                request.setAttribute("msg", "Pessoa atualizada com sucesso");
+            } else {
+                request.setAttribute("msg", "Ocorreu um erro ao atualizar a pessoa :-(");
+            }
+            getServletContext().getRequestDispatcher("/mensagem.jsp").forward(request, response);
+        }
     }
 
     /**
