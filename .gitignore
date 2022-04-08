@@ -156,10 +156,18 @@ dmypy.json
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/fund/webap/monojava/01-basico/nbproject/private/
+/fund/webap/monojava/basico/nbproject/private/
 /fund/webap/monojava/02-bean/nbproject/private/
+/fund/webap/monojava/01-basico/nbproject/private/
+/fund/webap/monojava/03-get-post/nbproject/private/
+/fund/webap/monojava/03-set-get-property/nbproject/private/
 /fund/webap/monojava/03-cr-basico/nbproject/private/
+/fund/webap/monojava/03-crud-com-dois-daos/nbproject/private/
+/fund/webap/monojava/04-crud-com-dois-daos/nbproject/private/
 /fund/webap/monojava/04-crd-com-dois-daos/nbproject/private/
+/fund/webap/monojava/WebApplication1/nbproject/private/
+/fund/webap/monojava/WebApplication2/nbproject/private/
 /fund/webap/monojava/99-microkernel-plugin/nbproject/private/
 /fund/webap/monojava/98-microkernel-class-for-loading/nbproject/private/
 /fund/webap/monojava/05-crud/nbproject/private/
+/fund/webap/monojava/05-crud-sessao-login-google/nbproject/private/
