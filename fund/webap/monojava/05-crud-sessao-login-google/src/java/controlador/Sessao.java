@@ -35,13 +35,17 @@ public class Sessao extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
+            HttpSession sessao = request.getSession(true);
+            
             String op = request.getParameter("op");
             if (op == null) {
                 out.print("Servlet de sessão ok");
             } else if (op.equals("login")) {
-                HttpSession sessao = request.getSession(true);
-                sessao.setAttribute("login", request.getParameter("login"));
+                sessao.setAttribute("login", request.getParameter("email"));
                 out.print("ok");
+            } else if (op.equals("logout")) {
+                sessao.removeAttribute("login");
+                getServletContext().getRequestDispatcher("/inicial.jsp").forward(request, response);
             } else out.print("op inválido: "+op);
         }
     }

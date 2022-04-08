@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"
         import="jakarta.servlet.http.HttpSession"
-         %>
+        %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,24 +10,28 @@
     </head>
     <body>
 
-        <div id="buttonDiv"></div> 
-
+        
         <h1>Cadastro de pessoas</h1>
 
         <div id="email"></div>
 
         <div id="email-sessao"></div>
 
-        <% 
-        String email = (String) session.getAttribute("email");
-        if (email != null) {
-        %>
-        Sessão no servidor: <%= email %>
-        <% 
-            }
-        %>
 
-        
+        <% 
+        String login = (String) session.getAttribute("login");
+        if (login != null) {
+        %>
+        Sessão no servidor: <%= login %>
+
+        <a href="sessao?op=logout">Logout</a>
+        <% 
+            } else {
+        %>
+        Sessão inativa no servidor
+        <% } %>
+
+
 
         <ul>
             <li>
@@ -38,6 +42,10 @@
             </li>
         </ul>
 
+        <hr>
+        <div id="buttonDiv"></div> 
+
+        
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <!-- login com google! -->
@@ -52,18 +60,23 @@
 
                 resp = JSON.parse(atob(token.split('.')[1]));
                 //console.log(JSON.stringify(resp));
-                alert(resp.email);
+                //alert(resp.email);
 
                 $("#email").text("Bem vindo, " + resp.email);
 
                 // informar o servidor de que o front-end está logado
                 $.get("sessao?op=login&email=" + resp.email, function (data) {
-                    if (data == "ok") {
-                        $("#email-sessao").text("Sessão ativa: " + resp.email);
+                    //alert("recebido: "+data);
+                    if (data === "ok") {
+                        $("#email-sessao").text("Sessão ativa via JS: " + resp.email);
+                        // atualizar a página
+                        //document.location.reload(true);
                     } else {
                         $("#email-sessao").text("Problema na sessão: " + data);
                     }
                 });
+
+
 
                 /*
                  // decodeJwtResponse() is a custom function defined by you
@@ -72,7 +85,7 @@
                  
                  console.log("ID: " + responsePayload.sub);
                  console.log('Full Name: ' + responsePayload.name);
-                 console.log('Given Name: ' + responsePayload.given_name);
+                 console.log('Given Name: ' + responsePayload.given_name);;
                  console.log('Family Name: ' + responsePayload.family_name);
                  console.log("Image URL: " + responsePayload.picture);
                  console.log("Email: " + responsePayload.email);
