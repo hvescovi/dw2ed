@@ -7,73 +7,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <head>
         <title>Cadastro de pessoas</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        Página inicial em servidor web comum.
+        Não deve ser utilizada na aplicação.
+        É melhor configurar o início da aplicação para um servlet.
+        Exemplo:
+        <a href="https://stackoverflow.com/questions/19317410/unable-to-find-web-xml-in-netbeans-7-0-1">configurando o web.xml no netbeans</a>
 
-        <div id="buttonDiv"></div> 
-
-        <h1>Cadastro de pessoas</h1>
-
-        <div id="email"></div>
-        <ul>
-            <li>
-                <a href="pessoa">Listar</a>
-            </li>
-            <li>
-                <a href="pessoa?op=f">Inserir</a>
-            </li>
-        </ul>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-        <!-- login com google! -->
-        <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-        <script>
-            function handleCredentialResponse(response) {
-
-                console.log("Encoded JWT ID token: " + response.credential);
-
-                token = response.credential;
-
-                resp = JSON.parse(atob(token.split('.')[1]));
-                //console.log(JSON.stringify(resp));
-                alert(resp.email);
-
-                $("#email").text("Bem vindo, "+resp.email);
-                
-                /*
-                 // decodeJwtResponse() is a custom function defined by you
-                 // to decode the credential response.
-                 const responsePayload = decodeJwtResponse(response.credential);
-                 
-                 console.log("ID: " + responsePayload.sub);
-                 console.log('Full Name: ' + responsePayload.name);
-                 console.log('Given Name: ' + responsePayload.given_name);
-                 console.log('Family Name: ' + responsePayload.family_name);
-                 console.log("Image URL: " + responsePayload.picture);
-                 console.log("Email: " + responsePayload.email);
-                 
-                 */
-            }
-            window.onload = function () {
-                google.accounts.id.initialize({
-                    client_id: "523415345044-d0c904843j1aj1nsu8bkfvjcim42e2fe.apps.googleusercontent.com",
-                    callback: handleCredentialResponse
-                });
-                google.accounts.id.renderButton(
-                        document.getElementById("buttonDiv"),
-                        {theme: "outline", size: "large"}  // customization attributes
-                );
-                google.accounts.id.prompt(); // also display the One Tap dialog
-            };
-
-
-
-
-        </script>
-
-
+        No caso desta aplicação:
+        <a href="geral">início da aplicação</a>
     </body>
 </html>
