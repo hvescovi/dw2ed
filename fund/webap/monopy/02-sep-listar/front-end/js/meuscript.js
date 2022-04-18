@@ -1,7 +1,7 @@
 $(function() { // quando o documento estiver pronto/carregado
     
     $.ajax({
-        url: 'http://localhost:5000/listar_pessoas',
+        url: 'http://localhost:5000/retornar_pessoas',
         method: 'GET',
         dataType: 'json', // os dados são recebidos no formato json
         success: listar, // chama a função listar para processar o resultado

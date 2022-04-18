@@ -6,8 +6,8 @@ def inicio():
     return 'Sistema de cadastro de pessoas. '+\
         '<a href="/listar_pessoas">Operação listar</a>'
 
-@app.route("/listar_pessoas")
-def listar_pessoas():
+@app.route("/retornar_pessoas")
+def retornar_pessoas():
     # obter as pessoas do cadastro
     pessoas = db.session.query(Pessoa).all()
     # aplicar o método json que a classe Pessoa possui a cada elemento da lista
