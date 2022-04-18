@@ -19,3 +19,6 @@ def retornar_pessoas():
     return resposta # retornar...
 
 app.run(debug=True)
+
+# teste da API:
+# curl localhost:5000/retornar_pessoas
