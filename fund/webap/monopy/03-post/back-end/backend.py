@@ -10,7 +10,7 @@ def inicio():
 @app.route("/incluir_pessoa", methods=['post'])
 def incluir_pessoa():
     # preparar uma resposta otimista
-    resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
+    resposta = jsonify({"resultado": "ok", "detalhes": "oi"})
     # receber as informações da nova pessoa
     dados = request.get_json() #(force=True) dispensa Content-Type na requisição
     try: # tentar executar a operação
