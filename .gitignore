@@ -145,6 +145,11 @@ dmypy.json
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# HYLSON personalizações
+!nblibraries.properties
+!sqlite-jdbc-3.36.0.3.jar
+!mysql-connector-java-8.0.25.jar
+
 # Package Files #
 *.jar
 *.war
@@ -171,3 +176,5 @@ hs_err_pid*
 /fund/webap/monojava/98-microkernel-class-for-loading/nbproject/private/
 /fund/webap/monojava/05-crud/nbproject/private/
 /fund/webap/monojava/05-crud-sessao-login-google/nbproject/private/
+/bd/java/acesso-sqlite/nbproject/private/
+/bd/java/sqlite/nbproject/private/
