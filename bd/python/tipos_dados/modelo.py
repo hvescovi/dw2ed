@@ -13,30 +13,22 @@ class Pessoa(db.Model):
     def __str__(self):
         s = f'{self.id}, {self.nome}, {self.mensagem}, '
         s += f'{self.dtnasc}, {self.peso}'
-
+        # exibindo data de nascimento por partes
         s += f' | {self.dtnasc.day}/{self.dtnasc.month}/{self.dtnasc.year}'
-        #for item in vars(self).items():
-        #    s += item + ", "
         return s
 
-# teste da classe
-if __name__ == "__main__":
-    # apagar o arquivo, se houver
-    if os.path.exists(arquivobd):
+if __name__ == "__main__": # teste da classe
+    if os.path.exists(arquivobd): # apagar o arquivo, se houver
         os.remove(arquivobd)
 
-    # criar tabelas
-    db.create_all()
-
-    # teste da classe Pessoa
-    p = Pessoa(nome = "João da Silva", 
+    db.create_all() # criar tabelas
+    
+    p = Pessoa(nome = "João da Silva", # teste da classe Pessoa
                mensagem = "Viva o momento e faça planos", 
                dtnasc = date(2014, 1, 25),
                peso = 73.5) 
 
-    # persistir
-    db.session.add(p)
+    db.session.add(p) # persistir
     db.session.commit()
     
-    # exibir a pessoa
-    print(p)
+    print(p) # exibir a pessoa
