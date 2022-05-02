@@ -1,7 +1,7 @@
 package exemplo4.testes;
 
-//import exemplo4.dao.mysql.DAO;
-import exemplo4.dao.estatico.DAO;
+import exemplo4.dao.mysql.DAO;
+//import exemplo4.dao.estatico.DAO;
 import exemplo4.modelo.Author;
 
 public class TestarDAO {
