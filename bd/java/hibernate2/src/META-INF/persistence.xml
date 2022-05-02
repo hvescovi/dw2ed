@@ -6,12 +6,18 @@
 	<persistence-unit name="AlgaWorksPU">
 	  <provider>org.hibernate.ejb.HibernatePersistence</provider>
 	  <properties>
-	      <property name="javax.persistence.jdbc.url"
-	      value="jdbc:mysql://localhost/ebook-jpa" />
-	      <property name="javax.persistence.jdbc.user"
-	      value="root" />
-	      <property name="javax.persistence.jdbc.password"
-	      value="testando" />
+	      <!--  configuração local docker -->
+	      <!-- 
+	      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/ebook-jpa" />
+	      <property name="javax.persistence.jdbc.user" value="root" />
+	      <property name="javax.persistence.jdbc.password" value="testando" />
+	       -->
+	       
+	       <!--  configuração remota -->
+	      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://51.222.203.22/hylsonco_poo2?useSSL=true" />
+	      <property name="javax.persistence.jdbc.user" value="hylsonco_poo2_user" />
+	      <property name="javax.persistence.jdbc.password" value="ifcpoo2!@#" />
+	       
 	       
 	      <!--  
 	      <property name="javax.persistence.jdbc.driver"

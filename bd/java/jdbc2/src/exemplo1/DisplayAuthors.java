@@ -11,9 +11,9 @@ public class DisplayAuthors {
 
 	public static void main(String[] args) {
 		
-		final String DATABASE_URL = "jdbc:mysql://localhost/books";
-		final String USERNAME = "root";
-		final String PASSWORD = "testando";
+		final String DATABASE_URL = "jdbc:mysql://51.222.203.22/hylsonco_books";
+		final String USERNAME = "hylsonco_poo2_user";
+		final String PASSWORD = "ifcpoo2!@#";
 		
 		final String SELECT_QUERY = "SELECT authorID, firstName, lastName FROM Authors";
 		

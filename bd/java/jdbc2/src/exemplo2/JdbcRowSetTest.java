@@ -4,15 +4,16 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
 public class JdbcRowSetTest {
 
     public static void main(String[] args) {
 		
-		final String DATABASE_URL = "jdbc:mysql://localhost/books";
-		final String USERNAME = "root";
-		final String PASSWORD = "testando";
+    	final String DATABASE_URL = "jdbc:mysql://51.222.203.22/hylsonco_books";
+		final String USERNAME = "hylsonco_poo2_user";
+		final String PASSWORD = "ifcpoo2!@#";
 		
 		final String SELECT_QUERY = 
 				"SELECT LastName, FirstName, Title"
@@ -27,6 +28,7 @@ public class JdbcRowSetTest {
 			// JdbcRowSet => conexão persistente
 			// CacheRowSet => conexão eventual
 			JdbcRowSet rowSet = RowSetProvider.newFactory().createJdbcRowSet();
+			//CachedRowSet rowSet = RowSetProvider.newFactory().createCachedRowSet();
 			rowSet.setUrl(DATABASE_URL);
 			rowSet.setUsername(USERNAME);
 			rowSet.setPassword(PASSWORD);

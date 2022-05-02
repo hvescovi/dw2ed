@@ -10,10 +10,10 @@ import exemplo4.modelo.Author;
 
 public class DAO {
 
-	final String DATABASE_URL = "jdbc:mysql://localhost/books";
-	final String USERNAME = "root";
-	final String PASSWORD = "testando";
-	
+	final String DATABASE_URL = "jdbc:mysql://51.222.203.22/hylsonco_books";
+	final String USERNAME = "hylsonco_poo2_user";
+	final String PASSWORD = "ifcpoo2!@#";
+		
 	JdbcRowSet rowSet;
 
 	public DAO() {

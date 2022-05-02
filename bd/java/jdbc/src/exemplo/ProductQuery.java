@@ -17,9 +17,9 @@ import javafx.stage.Stage;
 
 public class ProductQuery extends Application {
 
-	public static final String URL = "jdbc:mysql://localhost/ElectricalStore?useSSL=true";
-	public static final String USERNAME = "root";
-	public static final String PASSWORD = "testando";
+	final String DATABASE_URL = "jdbc:mysql://51.222.203.22/hylsonco_poo2";
+	final String USERNAME = "hylsonco_poo2_user";
+	final String PASSWORD = "ifcpoo2!@#";
 	
 	@Override
 	public void start(Stage stage) {
@@ -45,7 +45,7 @@ public class ProductQuery extends Application {
 		Statement st;
 		ResultSet result;
 		try {
-			con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			con = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 			st = con.createStatement();
 			result = st.executeQuery("select * from products");
 			while (result.next()) {

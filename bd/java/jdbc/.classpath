@@ -6,7 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/friend/Downloads/mysql-connector-java-8.0.25.jar"/>
+	<classpathentry kind="lib" path="/home/friend/01-github/dw2ed/bd/java/mysql-connector-java-8.0.25.jar"/>
 	<classpathentry kind="lib" path="/home/friend/Downloads/javafx-sdk-18.0.1/lib/javafx.base.jar"/>
 	<classpathentry kind="lib" path="/home/friend/Downloads/javafx-sdk-18.0.1/lib/javafx.controls.jar"/>
 	<classpathentry kind="lib" path="/home/friend/Downloads/javafx-sdk-18.0.1/lib/javafx.graphics.jar"/>
