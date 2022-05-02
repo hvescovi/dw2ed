@@ -26,5 +26,9 @@
 	<classpathentry kind="lib" path="/home/friend/01-github/dw2ed/bd/java/hibernate-jars/required/txw2-2.3.1.jar"/>
 	<classpathentry kind="lib" path="/home/friend/01-github/dw2ed/bd/java/mysql-connector-java-8.0.25.jar"/>
 	<classpathentry kind="lib" path="/home/friend/01-github/dw2ed/bd/java/sqlite-jdbc-3.36.0.3.jar"/>
+	<classpathentry kind="lib" path="/home/friend/Downloads/javafx-sdk-18.0.1/lib/javafx.base.jar"/>
+	<classpathentry kind="lib" path="/home/friend/Downloads/javafx-sdk-18.0.1/lib/javafx.controls.jar"/>
+	<classpathentry kind="lib" path="/home/friend/Downloads/javafx-sdk-18.0.1/lib/javafx.media.jar"/>
+	<classpathentry kind="lib" path="/home/friend/Downloads/javafx-sdk-18.0.1/lib/javafx.graphics.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

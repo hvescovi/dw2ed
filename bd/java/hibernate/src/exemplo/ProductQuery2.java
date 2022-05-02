@@ -1,5 +1,8 @@
 package exemplo;
 
+// configurações a serem inseridas:
+// --module-path /home/friend/Downloads/javafx-sdk-18.0.1/lib --add-modules=javafx.controls
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
