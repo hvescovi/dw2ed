@@ -22,7 +22,7 @@ $(function() { // quando o documento estiver pronto/carregado
             if (retorno.resultado == "ok") { // a operação deu certo?
                 // informar resultado de sucesso
                 alert("Pessoa incluída com sucesso!");
-                $("#mensagem").text("Pessoa incluída com sucesso!");
+                //$("#mensagem").text("Pessoa incluída com sucesso!");
                 // limpar os campos
                 $("#campoNome").val("");
                 $("#campoEmail").val("");
