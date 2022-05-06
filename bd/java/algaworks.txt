@@ -1,0 +1,73 @@
+@startuml
+
+' exemplos obtidos parcialmente do livro
+' JPA e Hibernate, de Thiago Faria e Normandes Jr
+' algaworks
+
+class Pessoa {
+  int id;
+  String nome;
+  String tipoSanguineo;
+}
+
+class Funcionario {
+	BigDecimal salario;
+	String cargo;
+}
+
+class Cliente {
+	BigDecimal limiteCredito;
+	BigDecimal rendaMensal;
+	boolean Bloqueado;
+}
+
+Pessoa <|-down- Cliente
+Pessoa <|-down- Funcionario
+
+class Veiculo {
+  Long codigo;
+	String fabricante;
+	String modelo;
+	Integer anoFabricacao;
+	Integer anoModelo;
+	BigDecimal valor;
+}
+
+class VeiculoComDono {
+	Long codigo;
+	String fabricante;
+	String modelo;
+	Integer anoFabricacao;
+	Integer anoModelo;
+	BigDecimal valor;
+	Proprietario proprietario;
+}
+
+class Proprietario {
+	Long codigo;
+	String nome;
+	String telefone;
+	String email;
+	List<VeiculoComDono> veiculos;
+}
+
+VeiculoComDono o-- Proprietario
+
+class VeiculoIncrementado {
+	Long codigo;
+	String fabricante;
+	String modelo;
+	Integer anoFabricacao;
+	Integer anoModelo;
+	BigDecimal valor;
+	Set<Acessorio> acessorios;
+}
+
+class Acessorio {
+	Long codigo;
+	String descricao;
+}
+
+VeiculoIncrementado o-- Acessorio
+
+@enduml
