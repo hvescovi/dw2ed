@@ -1,5 +1,9 @@
 @startuml
 
+' exemplos obtidos parcialmente do livro
+' JPA e Hibernate, de Thiago Faria e Normandes Jr
+' algaworks
+
 class Pessoa {
   int id;
   String nome;
