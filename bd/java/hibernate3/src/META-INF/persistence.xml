@@ -1,42 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1"
-             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence_2_1.xsd">
-    <persistence-unit name="AlgaWorksPU">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <properties>
-            <!--  configuração local docker -->
-            <!-- 
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence_2_1.xsd">
+  <persistence-unit name="AlgaWorksPU">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <properties>
+      <!--  configuração local docker -->
+      <!-- 
            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/ebook-jpa" />
            <property name="javax.persistence.jdbc.user" value="root" />
            <property name="javax.persistence.jdbc.password" value="testando" />
             -->
-	       
-            <!--  configuração remota -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://51.222.203.22/hylsonco_poo2?useSSL=true" />
-            <property name="javax.persistence.jdbc.user" value="hylsonco_poo2_user" />
-            <property name="javax.persistence.jdbc.password" value="ifcPoo2!#$" />
-	       
-            <!--  
+      <!--  configuração remota -->
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://51.222.203.22/hylsonco_poo2?useSSL=true"/>
+      <property name="javax.persistence.jdbc.user" value="hylsonco_poo2_user"/>
+      <property name="javax.persistence.jdbc.password" value="ifcPoo2!#$"/>
+      <!--  
            <property name="javax.persistence.jdbc.driver"
            value="com.mysql.jdbc.Driver" />
             -->
-	      
-            <property name="javax.persistence.jdbc.driver"
-                        value="com.mysql.cj.jdbc.Driver" />	              
-            <property name="hibernate.dialect"
-                        value="org.hibernate.dialect.MySQL5Dialect" />
-            <property name="hibernate.show_sql" value="true" />
-                          
-            <!-- abaixo usado para atualizações -->
-            <!-- <property name="hibernate.hbm2ddl.auto" value="update" />  -->
-              
-            <!-- após fixar a definição das tabelas e criá-las, altere o .auto para o valor abaixo -->
-            <!-- <property name="hibernate.hbm2ddl.auto" value="validate" /> -->         
-                
-                           
-            
-        </properties>
-    </persistence-unit>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <!-- abaixo usado para atualizações -->
+      <!-- <property name="hibernate.hbm2ddl.auto" value="update" />  -->
+      <!-- após fixar a definição das tabelas e criá-las, altere o .auto para o valor abaixo -->
+      <!-- <property name="hibernate.hbm2ddl.auto" value="validate" /> -->
+    </properties>
+  </persistence-unit>
 </persistence>

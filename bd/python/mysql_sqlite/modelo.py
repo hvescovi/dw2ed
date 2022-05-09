@@ -12,15 +12,7 @@ class Pessoa(db.Model):
     def __str__(self):
         return self.nome + "[id="+str(self.id)+ "], " +\
             self.email + ", " + self.telefone
-    # expressao da classe no formato json
-    def json(self):
-        return {
-            "id": self.id,
-            "nome": self.nome,
-            "email": self.email,
-            "telefone": self.telefone
-        }
-
+    
 class Exame(db.Model):
     __tablename__ = 'hylson_sqlalchemy_exame'
     id = db.Column(db.Integer, primary_key=True)
@@ -29,14 +21,7 @@ class Exame(db.Model):
     vr = db.Column(db.String(254)) # valores de referência
     def __str__(self):
         return f"{self.nome} [{self.id}], unidade={self.unidade} ({self.vr})"  
-    def json(self):
-        return {
-            "id":self.id,
-            "nome":self.nome,
-            "unidade":self.unidade,
-            "vr":self.vr
-        }
-    
+        
 class ExameRealizado(db.Model):
     __tablename__ = 'hylson_sqlalchemy_exame_realizado'
     id = db.Column(db.Integer, primary_key=True)
@@ -52,18 +37,7 @@ class ExameRealizado(db.Model):
 
     def __str__(self): # expressão da classe em forma de texto
         return f"{self.data}, {self.resultado}, " + \
-            f"{self.pessoa}, {self.exame}"
-
-    def json(self):
-        return {
-            "id":self.id,
-            "data":self.data,
-            "resultado":self.resultado,
-            "pessoa_id":self.pessoa_id,
-            "pessoa":self.pessoa.json(),
-            "exame_id":self.exame_id,
-            "exame":self.exame.json()
-        }
+            f"{str(self.pessoa)}, {str(self.exame)}"
 
 class Respirador(db.Model):
     __tablename__ = 'hylson_sqlalchemy_respirador'
@@ -80,24 +54,5 @@ class Respirador(db.Model):
     def __str__(self): # expressão da classe em forma de texto
         s = f"Respirador {self.codigo} adquirido em {self.data_aquisicao}"
         if self.pessoa != None:
-            s += f", emprestado para {self.pessoa} desde {self.data_aquisicao}"
+            s += f", emprestado para {str(self.pessoa)} desde {self.data_aquisicao}"
         return s
-
-    def json(self):
-        if self.pessoa is None: # o respirador não está emprestado?
-            pessoa_id = ""
-            pessoa = ""
-            data_emprestimo = ""
-        else: # o respirador está emprestado!! :-)
-            pessoa_id = self.pessoa_id
-            pessoa = self.pessoa.json()
-            data_emprestimo = self.data_emprestimo
-            
-        return {
-            "id": self.id,
-            "codigo": self.codigo,
-            "data_aquisicao": self.data_aquisicao,
-            "pessoa_id": pessoa_id,
-            "pessoa": pessoa,
-            "data_emprestimo": data_emprestimo
-        } 
