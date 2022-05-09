@@ -11,12 +11,19 @@ p2 = Pessoa(nome = "Maria Oliveira",
 db.session.add(p1)
 db.session.add(p2)
 db.session.commit()
+print(p1)
+print(p2)
 
 # criar exames
 b12 = Exame(nome="B12", unidade="pg/mL", 
     vr="239 a 931")
 colesterol = Exame(nome="Colesterol total", 
     unidade="mg/dL", vr="menor que 150")
+db.session.add(b12)
+db.session.add(colesterol)
+db.session.commit()
+print(b12)
+print(colesterol)
 
 # criar resultado de exame
 e1 = ExameRealizado(data="02/02/2020", exame=b12, 
@@ -32,7 +39,7 @@ db.session.add(r1)
 db.session.commit()
 r2 = Respirador(codigo="002B", 
     data_aquisicao="01/02/2020", 
-    pessoa = p1, data_emprestimo="04/02/2020")
+    emprestadoPara = p1, data_emprestimo="04/02/2020")
 db.session.add(r2)
 db.session.commit()
 print(r1)

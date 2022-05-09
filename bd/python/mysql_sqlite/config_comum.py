@@ -6,5 +6,5 @@ import os
 # flask
 app = Flask(__name__)
 
-utilizar = "sqlite"
-#utilizar = "mysql"
+#utilizar = "sqlite"
+utilizar = "mysql"

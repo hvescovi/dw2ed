@@ -49,10 +49,10 @@ class Respirador(db.Model):
     # atributo de chave estrangeira
     pessoa_id = db.Column(db.Integer, db.ForeignKey(Pessoa.id))
     # atributo de relacionamento, para acesso aos dados via objeto
-    pessoa = db.relationship("Pessoa")
+    emprestadoPara = db.relationship("Pessoa")
 
     def __str__(self): # expressão da classe em forma de texto
         s = f"Respirador {self.codigo} adquirido em {self.data_aquisicao}"
-        if self.pessoa != None:
-            s += f", emprestado para {str(self.pessoa)} desde {self.data_aquisicao}"
+        if self.emprestadoPara != None:
+            s += f", emprestado para {str(self.emprestadoPara)} desde {self.data_aquisicao}"
         return s
