@@ -4,7 +4,6 @@
  */
 package test;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
