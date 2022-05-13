@@ -158,7 +158,6 @@ dmypy.json
 !nblibraries.properties
 !sqlite-jdbc-3.36.0.3.jar
 !mysql-connector-java-8.0.25.jar
-!hibernate-jars-required.zip
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
