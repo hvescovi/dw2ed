@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
 public class Pessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pessoa_seq")
-    @SequenceGenerator(name = "pessoa_seq", initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pgm4_hylson_pessoa_seq")
+    @SequenceGenerator(name = "pgm4_hylson_pessoa_seq", initialValue = 1)
     private Long id;
 
     private String nome;
