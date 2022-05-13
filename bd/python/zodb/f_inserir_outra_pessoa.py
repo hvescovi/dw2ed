@@ -8,11 +8,18 @@ connection=db.open()
 root=connection.root()
 
 p = Pessoa()
-p.nome = "João da Silva"
-p.email = "josilva@mail.com"
-p.peso = 70
+p.nome = "Maria Oliveira"
+p.email = "maliv@mail.com"
+p.peso = 65
 
-root['pessoas'] = [p]
+# reassociação
+# https://zodb.org/en/latest/articles/ZODB1.html#a-complete-example
+pessoas = root['pessoas']
+pessoas.append(p)
+root['pessoas'] = pessoas
+
+# execuções repetidas deste código vai inserir
+# Maria várias vezes no BD
 
 transaction.commit()
 

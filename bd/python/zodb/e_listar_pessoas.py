@@ -7,17 +7,6 @@ db=DB(storage)
 connection=db.open()
 root=connection.root()
 
-p = Pessoa()
-p.nome = "João da Silva"
-p.email = "josilva@mail.com"
-p.peso = 70
-
-root['pessoas'] = [p]
-
-transaction.commit()
-
-print(root.items)
-
 # percorrer as pessoas
 for pe in root['pessoas']:
     print(pe)
