@@ -12,8 +12,10 @@ p.nome = "João da Silva"
 p.email = "josilva@mail.com"
 p.peso = 70
 
+# cria uma entrada (dicionário, tabela) chamada pessoas
 root['pessoas'] = [p]
 
+# salva!
 transaction.commit()
 
 print(root.items)
