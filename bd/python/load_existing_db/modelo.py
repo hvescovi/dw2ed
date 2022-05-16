@@ -21,5 +21,5 @@ class Compania(db.Model):
 
 # teste da classe
 if __name__ == "__main__":
-    for c in db.session.query(Compania).all():
+    for c in db.session.query(Compania).limit(10):
         print(c.id, c.nome)
