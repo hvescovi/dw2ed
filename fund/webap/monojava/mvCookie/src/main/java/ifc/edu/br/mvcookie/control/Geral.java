@@ -113,6 +113,17 @@ public class Geral extends HttpServlet {
                         }
                     }
                 }
+
+                // tem cookies criados?
+                String cookies = "";
+                Cookie listaCookies[] = request.getCookies();
+                if (listaCookies != null) {
+                    for (Cookie c : listaCookies) {
+                        cookies += c.getName() + "|";
+                    }
+                }
+                sessao.setAttribute("cookies", cookies);
+
                 getServletContext().getRequestDispatcher("/" + op + ".jsp").forward(request, response);
             } else if (op.equals("aceitarCookies")) {
                 sessao.setAttribute("autorizadoExiste", "sim");
@@ -166,4 +177,8 @@ public class Geral extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    @Override
+    public void init() {
+
+    }
 }
