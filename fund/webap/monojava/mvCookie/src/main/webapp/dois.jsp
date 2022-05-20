@@ -7,9 +7,17 @@
     </head>
     <body>
         <%@include  file="menu.html" %>
-        
+
         A página DOIS tem promoções e recursos ilimitados para uso.
-        
+
         <jsp:include page="subpaginaCookies.jsp"/>
+
+        <% String visitas = (String) request.getAttribute("visitas");
+        if (visitas != null) {
+        %>
+        <br><b>Você já visitou esta página <%= visitas %> vezes</b>
+        <%
+          }
+        %>
     </body>
 </html>

@@ -54,39 +54,75 @@ public class Geral extends HttpServlet {
             } else {
                 analisouCookies = false;
             }
-            
+
             if (!analisouCookies) {
-                
                 // se não havia analisado, agora vai analisar :-)
                 // persiste essa informação na sessão de que já analisou os cookies
                 sessao.setAttribute("analisouCookies", true);
-                
+
                 // analisa os cookies
                 // livro goncalves2007desenvolvimento, pg 101
                 Cookie listaCookies[] = request.getCookies();
-                for (Cookie c : listaCookies) {
-                    if (c.getName().equals("mvCookie-1-cookie-autorizado")) {
-                        autorizadoExiste = true;
-                        podeUsarCookies = c.getValue().equals("sim");
-                        break;
+                if (listaCookies != null) {
+                    for (Cookie c : listaCookies) {
+                        if (c.getName().equals("mvCookie-1-cookie-autorizado")) {
+                            autorizadoExiste = true;
+                            podeUsarCookies = c.getValue().equals("sim");
+                            break;
+                        }
                     }
                 }
-
                 // persiste as informações sobre os cookies de autorização e uso
                 // para verificar na página JSP
                 sessao.setAttribute("autorizadoExiste", autorizadoExiste ? "sim" : "não");
                 sessao.setAttribute("podeUsarCookies", podeUsarCookies ? "sim" : "não");
-               
+            } else {
+                // recupera valores analisados antes (fechou e abriu browser?)
+                String autorizadoExisteSTR = (String) sessao.getAttribute("autorizadoExiste");
+                autorizadoExiste = ((autorizadoExisteSTR != null) && (autorizadoExisteSTR.equals("sim")));
+
+                if (autorizadoExiste) {
+                    String podeUsarCookiesSTR = (String) sessao.getAttribute("podeUsarCookies");
+                    podeUsarCookies = ((podeUsarCookiesSTR != null) && (podeUsarCookiesSTR.equals("sim")));
+
+                }
             }
 
             String op = request.getParameter("op");
             if (op == null) {
                 getServletContext().getRequestDispatcher("/inicial.jsp").forward(request, response);
             } else if (op.equals("um") || op.equals("dois") || op.equals("tres")) {
+                if (op.equals("dois") && (podeUsarCookies)) {
+                    // procura o cookie
+                    Cookie listaCookies[] = request.getCookies();
+                    if (listaCookies != null) {
+                        for (Cookie c : listaCookies) {
+                            if (c.getName().equals("mvCookie-1-visitasPGdois")) {
+                                // incrementa o número de visitas
+                                int v = Integer.parseInt(c.getValue());
+                                v++;
+                                String novoValor = String.valueOf(v);
+                                // atualiza o cookie
+                                c.setValue(novoValor);
+                                response.addCookie(c);
+
+                                // envia o valor das visitas para ser mostrado na página destino
+                                request.setAttribute("visitas", novoValor);
+                                break;
+                            }
+                        }
+                    }
+                }
                 getServletContext().getRequestDispatcher("/" + op + ".jsp").forward(request, response);
             } else if (op.equals("aceitarCookies")) {
                 sessao.setAttribute("autorizadoExiste", "sim");
                 sessao.setAttribute("podeUsarCookies", "sim");
+
+                //Controle de visita de páginas da página 2
+                //goncalves2007desenvolvimento, pg 99
+                Cookie pg2 = new Cookie("mvCookie-1-visitasPGdois", "0");
+                response.addCookie(pg2);
+
                 // usa redirect para, após o clique, 
                 // não permanecer na barra de endereços: Geral?op=aceitarCookies
                 response.sendRedirect(request.getContextPath() + "/Geral");

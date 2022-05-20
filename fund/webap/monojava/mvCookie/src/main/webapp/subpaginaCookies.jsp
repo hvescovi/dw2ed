@@ -45,10 +45,13 @@
         <a href="Geral?op=rejeitarCookies">não</a>
         <%
         } 
+
+        boolean analisouCookies = (Boolean) session.getAttribute("analisouCookies");
         %>
         
         <hr>
         <i>(autorizadoExisteSTR: <%= autorizadoExisteSTR %>)</i>
         <br>Sessao ID: <%= session.getId() %>
+        <br>Analisou Cookies: <%= analisouCookies %>
     </body>
 </html>
