@@ -132,6 +132,8 @@ public class Geral extends HttpServlet {
                 //Controle de visita de páginas da página 2
                 //goncalves2007desenvolvimento, pg 99
                 Cookie pg2 = new Cookie("mvCookie-1-visitasPGdois", "0");
+                pg2.setMaxAge(24 * 60 * 60);
+                pg2.setPath("/");
                 response.addCookie(pg2);
 
                 // usa redirect para, após o clique, 
