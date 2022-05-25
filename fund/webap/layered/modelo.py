@@ -12,11 +12,11 @@ class Pessoa:
             self.email + ", " + self.telefone
 
     def json(self):
-        return json.dumps({
+        return {
             "nome":self.nome,
             "email":self.email,
             "telefone":self.telefone
-        })
+        }
 
 # teste    
 if __name__ == "__main__":

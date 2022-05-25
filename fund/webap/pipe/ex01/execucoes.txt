@@ -23,4 +23,6 @@ $ curl -d 'teste: receba meus dados' localhost:1500
 ativar o servidor: idem item 2)
 
 chamar o servidor:
-$ cat reuniao-PAD.txt | nc -N localhost 1500
+$ cat arquivo-exemplo.txt | nc -N localhost 1500
+
+

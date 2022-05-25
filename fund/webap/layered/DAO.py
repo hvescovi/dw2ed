@@ -1,6 +1,9 @@
 import json
 from modelo import Pessoa
 
+caminho = '/home/friend/01-github/dw2ed/fund/webap/layered/'
+arquivo = 'dados.json'
+
 def retornarPessoas():
     
     # inicialização padrão
@@ -8,43 +11,39 @@ def retornarPessoas():
 
     try:
         # ler o arquivo json
-        pessoas = json.load(open('dados.json'))
+        pessoas = json.load(open(caminho+arquivo))
 
         # converter para lista de objetos
         for p in pessoas:
             nova = Pessoa(p['nome'], p['email'], p['telefone'])
-            retorno.add(nova)        
+            retorno.append(nova)        
     except:
         pass
 
     # retornar
     return retorno
 
-def incluirPessoa(p):
+def incluirPessoa(novaPessoa):
 
     # padrão
     pessoas = []
     try:
         # ler o arquivo json
-        tmp = json.loads(open('dados.json'))
+        f = open(caminho + arquivo)
+        tmp = json.load(f)
         for p in tmp:
-            nova = Pessoa(p['nome'], p['email'], p['telefone'])
-            pessoas.add(nova)     
-    except:
-        pass
+            x = p['nome']
+            nova = Pessoa(x, p['email'], p['telefone'])
+            pessoas.append(nova.json())     
+    except Exception as e:
+        print("Criando arquivo...") # pass #print(e)
 
     # incluir a pessoa 
-    pessoas.append(p)
+    pessoas.append(novaPessoa.json())
 
     # persistir o novo arquivo
-    with open('dados.json', 'w') as f:
-        for p in pessoas:
-            print(p)
-            nova = p.json()
-            print("escrevendo")
-            print(nova)
-            f.write(nova)
-
+    with open(caminho+arquivo, 'w') as outfile:
+        outfile.write(json.dumps(pessoas))
 
 if __name__ == "__main__":
     # teste da classe DAO
