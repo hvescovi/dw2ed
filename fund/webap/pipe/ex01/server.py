@@ -10,7 +10,7 @@ def padrao():
 @app.route("/", methods=['post'])
 def receber():
     dados = request.get_json()
-    resposta = "Dados recebidos, obrigado! ==> " + str(dados)
+    resposta = "Dados recebidos, obrigado! Você enviou ==> " + str(dados)
     return resposta
 
 app.run(debug=True)
