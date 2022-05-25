@@ -3,6 +3,7 @@
 ativar o servidor:
 python3 server.py
 
+cliente:
 ```
 $ cat teste.json | curl -H "Content-Type: application/json" -X POST -d @- localhost:5000
 ```
@@ -21,7 +22,7 @@ ativar o servidor:
 $ while true; do echo -e "HTTP/1.1 200 OK\n\n Obrigado, dados recebidos em $(date)" | nc -l -p 1500 -q 1; done
 ```
 
-chamar o servidor:
+cliente:
 ```
 $ curl -d 'teste: receba meus dados' localhost:1500
 ```
@@ -30,7 +31,7 @@ $ curl -d 'teste: receba meus dados' localhost:1500
 
 ativar o servidor: idem item 2)
 
-chamar o servidor:
+cliente:
 ```
 $ cat exemplo.txt | nc -N localhost 1500
 ```
