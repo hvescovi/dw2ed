@@ -1,0 +1,5 @@
+este é um arquivo texto
+foi criado no linux
+possui cinco linhas
+para usar como exemplo
+no envio de dados de um pipe para um servidor

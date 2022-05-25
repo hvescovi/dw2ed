@@ -9,7 +9,8 @@ def padrao():
 # rota padrão: recebimento de dados em json
 @app.route("/", methods=['post'])
 def receber():
-    dados = request.json
-    return dados
+    dados = request.get_json()
+    resposta = "Dados recebidos, obrigado! ==> " + str(dados)
+    return resposta
 
 app.run(debug=True)
