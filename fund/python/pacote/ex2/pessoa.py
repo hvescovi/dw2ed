@@ -1,11 +1,14 @@
+#import regras.config
 import regras.config as rc
 
 class Pessoa:
   def __init__(self, nome="", idade=0):
     self.nome = nome
+    #if idade > regras.config.IDADE_MAXIMA:
     if idade > rc.IDADE_MAXIMA:
     #if idade > regras.config.IDADE_MAXIMA:
-      self.idade = regras.config.IDADE_MAXIMA
+      #self.idade = regras.config.IDADE_MAXIMA
+      self.idade = rc.IDADE_MAXIMA
     else:
       self.idade = idade
   def __str__(self):
