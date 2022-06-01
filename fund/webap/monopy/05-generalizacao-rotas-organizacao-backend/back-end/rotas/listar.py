@@ -5,7 +5,6 @@ from modelo.ExameRealizado import *
 from modelo.Respirador import *
 
 @app.route("/listar/<string:classe>")
-# mais uma função similar à listar_pessoa :-/ vamos tentar generalizar :-)
 def listar(classe):
     # obter os dados da classe informada
     dados = None
