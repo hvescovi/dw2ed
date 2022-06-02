@@ -1,0 +1,33 @@
+@startuml
+
+' código de diagrama para ser renderizado no site
+' https://www.planttext.com/
+
+class Pessoa {
+  nome: String
+  email: String
+  telefone: String
+}
+class Exame {
+  nome: String
+  unidade: String
+  vr: String
+}
+class ExameRealizado {
+  data: String
+  resultado: String
+  pessoa: Pessoa
+  exame: Exame
+}
+class Respirador {
+  codigo: String
+  dataAquisicao: String
+  emprestadoPara: Pessoa
+  dataEmprestimo: String
+}
+
+Respirador o- Pessoa
+Pessoa -* ExameRealizado
+ExameRealizado *- Exame
+
+@enduml
