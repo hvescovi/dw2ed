@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_4_0.xsd">
+    <servlet>
+        <servlet-name>Geral</servlet-name>
+        <servlet-class>ifc.edu.br.mv10combo5.control.Geral</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletPessoa</servlet-name>
+        <servlet-class>ifc.edu.br.mv10combo5.control.ServletPessoa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Geral</servlet-name>
+        <url-pattern>/Geral</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPessoa</servlet-name>
+        <url-pattern>/ServletPessoa</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>Geral</welcome-file>
+    </welcome-file-list>
+</web-app>
