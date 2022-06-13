@@ -1,0 +1,19 @@
+aula apresentação AV2
+
+https://gitlab.com/GustavoLC/portfolio/-/tree/main/POO-PY
+https://github.com/halenakd/poo2_av2_academia
+https://github.com/SandyHoffmann/PythonNetflix
+https://github.com/vitorueno/POO2_AV2/
+
+- apresentar seu trabalho; falar sobre detalhes que aprendeu no desenvolvimento
+- exercício sugerido: inserir um método na classe principal do sistema que faça a operação principal
+- exercício: tentar automatizar algum teste usando pytest
+* observar exemplos em: 
+https://docs.pytest.org/en/7.1.x/
+https://github.com/hvescovi/dw2ed/tree/main/fund/python/testes
+possíveis ações:
+pip3 install pytest
+(professor: sudo apt install python3-pytest)
+nomear arquivo com test_xxxxx.py
+nomear funções com test_xxxxx
+executar: pytest-3
