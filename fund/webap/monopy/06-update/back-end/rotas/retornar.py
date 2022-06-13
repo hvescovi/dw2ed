@@ -3,8 +3,6 @@ from modelo.Pessoa import *
 
 @app.route("/retornar/<string:classe>/<int:id>", methods=['get'])
 def retornar(classe, id):
-    # inicializa uma resposta a ser preenchida a seguir
-    retorno = None
     try:  
         if classe == "Pessoa":
             alguem = Pessoa.query.get(id)
