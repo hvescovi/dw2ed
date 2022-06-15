@@ -10,3 +10,4 @@ PARTE 2:
 - obter os dados da tela
 - atualizar os dados no backend
 - informar o sucesso da operação
+- retornar para a tela de listagem, mostrando os dados atualizados
