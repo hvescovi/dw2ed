@@ -58,7 +58,7 @@ class ExameRealizado(db.Model):
             "resultado":self.resultado,
             "pessoa_id":self.pessoa_id,
             "pessoa":self.pessoa.json(),
-            "exame_id":exame_id,
+            "exame_id":self.exame_id,
             "exame":self.exame.json()
         }
 
