@@ -1,0 +1,24 @@
+@startuml C4_Elements
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/python.puml
+!include DEVICONS/terminal.puml
+!include FONTAWESOME/users.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(usuario, "Usuário", "Pessoa que possui a foto original", $sprite="users")
+
+System_Boundary(c1, "Sysgano") {
+Container(servidorweb, "Servidor web", "python/flask", "Recebe a foto original e o arquivo que contém o segredo", $sprite="python")
+}
+System_Ext(processamento, "Steghide", "terminal", "Insere um arquivo de segredo em uma foto sem alterar a aparência da foto", $sprite="terminal")
+
+
+Rel(usuario, servidorweb, "Foto + segredo", "Foto original e arquivo de segredo")
+Rel(servidorweb, processamento, "Foto + Segredo", "foto e secredo")
+Rel(processamento, servidorweb, "Foto processada", "foto visualmente idêntica à original mas contendo o segredo")
+Rel(servidorweb, usuario, "Foto processada", "foto contendo o segredo")
+@enduml

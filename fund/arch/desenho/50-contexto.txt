@@ -1,0 +1,10 @@
+@startuml C4_Elements
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(usuario, "Usuário", "Pessoa que possui a foto original")
+
+System(sistema, "Foto-segredo", "Sistema que recebe uma foto e um segredo, e devolve uma foto contendo de forma oculta o segredo")
+
+Rel(usuario, sistema, "Foto + Segredo", "foto original e arquivo secreto")
+Rel(sistema, usuario, "Foto processada", "foto visualmente idêntica à original mas contendo o segredo")
+@enduml
