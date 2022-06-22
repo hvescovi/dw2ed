@@ -3,7 +3,7 @@
 
 Person(usuario, "Usuário", "Pessoa que possui a foto original")
 
-System(sistema, "Foto-segredo", "Sistema que recebe uma foto e um segredo, e devolve uma foto contendo de forma oculta o segredo")
+System(sistema, "Sysgano", "Sistema que recebe uma foto e um segredo, e devolve uma foto contendo de forma oculta o segredo")
 
 Rel(usuario, sistema, "Foto + Segredo", "foto original e arquivo secreto")
 Rel(sistema, usuario, "Foto processada", "foto visualmente idêntica à original mas contendo o segredo")
