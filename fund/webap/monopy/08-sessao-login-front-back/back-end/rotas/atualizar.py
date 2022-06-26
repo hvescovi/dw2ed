@@ -7,29 +7,35 @@ def atualizar(classe):
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações do novo objeto
     dados = request.get_json()  
-    try:  
-        if classe == "Pessoa":
-            if 'id' not in dados: # não tem o atributo id?
-                resposta = jsonify({"resultado": "erro", 
-                            "detalhes": "Atributo id não encontrado"})
-            else:
-                id = dados['id']
-                alguem = Pessoa.query.get(id) # localizar a pessoa
-                if alguem is None: # se não encontrou
+    if 'login' not in dados:
+      resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login na requisição"})
+    else:
+      if not session.get(dados['login']):
+        resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login"+dados['login']+" na sessão"})
+      else:
+        try:  
+            if classe == "Pessoa":
+                if 'id' not in dados: # não tem o atributo id?
                     resposta = jsonify({"resultado": "erro", 
-                                "detalhes": f"Objeto não encontrado, id: {id}"})
+                                "detalhes": "Atributo id não encontrado"})
                 else:
-                    # atualizar os campos (esta parte dá pra melhorar :-)
-                    alguem.nome = dados['nome'] # if dados['nome'] is not None else alguem.nome
-                    alguem.email = dados['email']
-                    alguem.telefone = dados['telefone']
-                    db.session.commit()  # efetivar a atualização
-        else:
-            resposta = jsonify({"resultado": "erro", "detalhes": f"Classe não encontrada: {classe}"})        
-        
-    except Exception as e:  # em caso de erro...
-        # informar mensagem de erro
-        resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
+                    id = dados['id']
+                    alguem = Pessoa.query.get(id) # localizar a pessoa
+                    if alguem is None: # se não encontrou
+                        resposta = jsonify({"resultado": "erro", 
+                                    "detalhes": f"Objeto não encontrado, id: {id}"})
+                    else:
+                        # atualizar os campos (esta parte dá pra melhorar :-)
+                        alguem.nome = dados['nome'] # if dados['nome'] is not None else alguem.nome
+                        alguem.email = dados['email']
+                        alguem.telefone = dados['telefone']
+                        db.session.commit()  # efetivar a atualização
+            else:
+                resposta = jsonify({"resultado": "erro", "detalhes": f"Classe não encontrada: {classe}"})        
+            
+        except Exception as e:  # em caso de erro...
+            # informar mensagem de erro
+            resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta  # responder!
