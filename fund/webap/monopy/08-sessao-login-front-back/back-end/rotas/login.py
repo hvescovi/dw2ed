@@ -7,8 +7,11 @@ def login():
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações do novo objeto
     dados = request.get_json()  
-    if dados['login'] == 'mylogin' and dados['senha'] == '123':
-        pass
+    login = dados['login']
+    senha = dados['senha']
+    if login == 'mylogin' and senha == '123':
+        # armazenar sessão, para informar que há login realizado
+        session[login] = "OK"
     else:
         resposta = jsonify({"resultado": "erro", "detalhes": "login e/ou senha inválido(s)"})        
     # adicionar cabeçalho de liberação de origem
