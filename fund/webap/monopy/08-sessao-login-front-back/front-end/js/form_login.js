@@ -17,7 +17,9 @@ $(function () { // quando o documento estiver pronto/carregado
             contentType: 'application/json', // tipo dos dados enviados
             data: dados, // estes são os dados enviados
             success: loginOk, // chama a função listar para processar o resultado
-            error: erroLogin
+            error: function (xhr, status, error) {
+                alert(error);
+            }
         });
         function loginOk(retorno) {
             if (retorno.resultado == "ok") { // a operação deu certo?
@@ -30,9 +32,7 @@ $(function () { // quando o documento estiver pronto/carregado
                 alert("ERRO: " + retorno.resultado + ":" + retorno.detalhes);
             }
         }
-        function erroLogin(retorno) {
-            alert("Login ou senha inválido(s)!!"+str(retorno));
-        }
+
     });
 
 });

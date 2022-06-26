@@ -12,9 +12,10 @@ def atualizar(classe):
       resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login na requisição"})
     else:
       login = dados['login']
-      # o login informado não está logado na sessão?
-      if session.get(login) == False:
-        resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login"+dados['login']+" na sessão"})
+      # o login informado não existe na sessão?
+      existe = session.get(login) != None
+      if not existe or session[login] == None: # se não existe ou se existe mas não tem valor
+          resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login"+dados['login']+" na sessão"})
       else:
         try:  
             if classe == "Pessoa":
