@@ -7,10 +7,13 @@ def atualizar(classe):
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações do novo objeto
     dados = request.get_json()  
+    # não foi passado login?
     if 'login' not in dados:
       resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login na requisição"})
     else:
-      if not session.get(dados['login']):
+      login = dados['login']
+      # o login informado não está logado na sessão?
+      if session.get(login) == False:
         resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login"+dados['login']+" na sessão"})
       else:
         try:  
