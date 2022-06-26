@@ -9,6 +9,7 @@ $(function () {
     } else {
         mensagem = `Bem vindo, ${login}.`;
         // carrega o menu de opções
+
         $("#menu").html(`
         
         Menu de opções:
@@ -19,7 +20,7 @@ $(function () {
         <a href=# id="linkLogout">Logout</a>
                 
         `);
-
+        
     }
     // exibe a mensagem na tela
     $("#mensagem").html(mensagem);
