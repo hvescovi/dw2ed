@@ -1,4 +1,4 @@
-from geral.config import *
+from geral import *
 import import_modelos
 from rotas.listar import *
 from rotas.retornar import *
@@ -9,4 +9,4 @@ from rotas.login import *
 def inicio():
     return 'backend operante, operação de editar'
 
-app.run()#debug=True)
+app.run(debug=True)

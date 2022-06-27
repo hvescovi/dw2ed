@@ -1,4 +1,4 @@
-from geral.config import *
+from geral import *
 from modelo.Pessoa import *
 
 @app.route("/retornar/<string:classe>/<int:id>", methods=['get'])

@@ -1,4 +1,4 @@
-from geral.config import *
+from geral import *
 from modelo.Pessoa import *
 
 @app.route("/login", methods=['POST'])

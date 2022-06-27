@@ -1,4 +1,4 @@
-from geral.config import *
+from geral import *
 
 import import_modelos
 

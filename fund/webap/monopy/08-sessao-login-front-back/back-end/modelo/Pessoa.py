@@ -1,4 +1,4 @@
-from geral.config import *
+from geral import *
 
 class Pessoa(db.Model):
     # atributos da pessoa

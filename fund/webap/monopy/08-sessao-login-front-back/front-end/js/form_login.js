@@ -18,7 +18,8 @@ $(function () { // quando o documento estiver pronto/carregado
             data: dados, // estes são os dados enviados
             success: loginOk, // chama a função listar para processar o resultado
             error: function (xhr, status, error) {
-                alert(error);
+                alert("Erro na conexão, verifique o backend. " + xhr.responseText + " - " + status + " - " + error);
+                // https://api.jquery.com/jquery.ajax/
             }
         });
         function loginOk(retorno) {

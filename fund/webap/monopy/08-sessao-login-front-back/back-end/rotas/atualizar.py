@@ -1,4 +1,4 @@
-from geral.config import *
+from geral import *
 from modelo.Pessoa import *
 
 @app.route("/atualizar/<string:classe>", methods=['put'])
@@ -13,9 +13,15 @@ def atualizar(classe):
     else:
       login = dados['login']
       # o login informado não existe na sessão?
-      existe = session.get(login) != None
-      if not existe or session[login] == None: # se não existe ou se existe mas não tem valor
-          resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login"+dados['login']+" na sessão"})
+      valor = None
+      print("tentando: "+login)
+      try:
+          valor = session[login]
+          print(valor)
+      except Exception as e:
+          print(str(e))
+      if valor == None:
+          resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login "+dados['login']+" na sessão"})
       else:
         try:  
             if classe == "Pessoa":
