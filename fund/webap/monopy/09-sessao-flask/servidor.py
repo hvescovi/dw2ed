@@ -72,4 +72,4 @@ app.run(debug=True)
 # teste via curl:
 # curl -c /tmp/cookie -X POST -d '{"chave":"email","valor":"hvescovi@hotmail.com"}' -H "Content-Type:application/json" localhost:5000/set
 # curl -b "/tmp/cookie" -d '{"chave":"email"}' -X GET -H "Content-Type:application/json"  localhost:5000/get
-# curl -b "/tmp/cookie" -d '{"chave":"popo"}' -X GET -H "Content-Type:application/json" localhost:5000/delete
+# curl -b "/tmp/cookie" -d '{"chave":"email"}' -X GET -H "Content-Type:application/json" localhost:5000/delete
