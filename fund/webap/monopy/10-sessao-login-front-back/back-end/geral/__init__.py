@@ -10,6 +10,7 @@ from flask_cors import CORS  # permitir back receber json do front
 
 # configurações
 app = Flask(__name__)
+
 CORS(app)  # aplicar o cross domain
 # caminho do arquivo de banco de dados
 path = os.path.dirname(os.path.abspath(__file__))
@@ -21,9 +22,9 @@ db = SQLAlchemy(app)
 
 # https://flask-session.readthedocs.io/en/latest/
 # https://github.com/fengsp/flask-session/blob/master/test_session.py#L69
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SECRET_KEY'] = '123X'
-app.config.from_object(__name__)
+app.secret_key = '$#EWFGHJUI*&DEGBHYJU&Y%T#RYJHG%##RU&U'
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # remoção automática dos arquivos

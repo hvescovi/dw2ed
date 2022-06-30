@@ -47,13 +47,13 @@ def atualizar(classe):
             # informar mensagem de erro
             resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
     # adicionar cabeçalho de liberação de origem
-    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    resposta.headers.add("Access-Control-Allow-Origin", "http://localhost:5000")
     return resposta  # responder!
 
 ''' 
 RESULTADOS DE TESTES:
 
-$ curl -X PUT -d '{"id":1, "nome":"Teresa", "email":"te@gmail.com", "telefone":"123456789"}' -H "Content-Type:application/json" localhost:5000/atualizar/Pessoa 
+$ curl -b "/tmp/cookie" -X PUT -d '{"id":1, "nome":"Tiago", "email":"ti@gmail.com","telefone":"123123123","login":"mylogin"}' -H "Content-Type:application/json" localhost:5000/atualizar/Pessoa
 {
   "detalhes": "ok", 
   "resultado": "ok"
@@ -62,24 +62,12 @@ $ curl -X PUT -d '{"id":1, "nome":"Teresa", "email":"te@gmail.com", "telefone":"
 $ curl localhost:5000/retornar/Pessoa/1
 {
   "detalhes": {
-    "email": "te@gmail.com", 
+    "email": "ti@gmail.com", 
     "id": 1, 
-    "nome": "Teresa", 
-    "telefone": "123456789"
+    "nome": "Tiago", 
+    "telefone": "123123123"
   }, 
   "resultado": "ok"
-}
-
-curl -X PUT -d '{"nome":"Paulo", "email":"pa@gmail.com", "telefone":"123456789"}' -H "Content-Type:application/json" localhost:5000/atualizar/Pessoa 
-{
-  "detalhes": "Atributo id n\u00e3o encontrado", 
-  "resultado": "erro"
-}
-
-AUSÊNCIA DO CAMPO TELEFONE:
-$ curl -X PUT -d '{"id":1, "nome":"Teresa", "email":"te@gmail.com"}' -H "Content-Type:application/json" localhost:5000/atualizar/Pessoa {
-  "detalhes": "'telefone'", 
-  "resultado": "erro"
 }
 
 '''

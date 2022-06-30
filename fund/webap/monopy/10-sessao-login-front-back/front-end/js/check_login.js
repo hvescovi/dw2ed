@@ -14,7 +14,7 @@ $(function () {
         
         Menu de opções:
         <a href="principal.html">Início</a> | 
-        <a href="listar.html">Listar</a> |
+        <a href="listar.html" id="linkListarPessoas">Listar</a> |
         Incluir |
         Opções |
         <a href=# id="linkLogout">Logout</a>
