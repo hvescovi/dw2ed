@@ -25,7 +25,7 @@ server_session = Session(app)
 
 @app.route('/')
 def padrao():
-    return '''Testando sessão client-side.
+    return '''Testando sessão server-side.
     <a href="/set_email">Iniciar</a>'''
     
 @app.route('/set_email', methods=['GET', 'POST'])
