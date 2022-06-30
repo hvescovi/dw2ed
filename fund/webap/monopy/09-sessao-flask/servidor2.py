@@ -33,14 +33,14 @@ def set_email():
     if request.method == 'POST':
         # Save the form data to the session object
         session['email'] = request.form['email_address']
-        return 'OK, <a href="/get_email">verifique</a> se o valo está gravado na sessão.'
+        return 'OK, <a href="/get_email">verifique</a> se o valor está gravado na sessão.'
         # return redirect(url_for('get_email'))
 
     return """
         <form method="post">
-            <label for="email">Enter your email address:</label>
+            <label for="email">Informe seu email:</label>
             <input type="email" id="email" name="email_address" required />
-            <button type="submit">Submit</button
+            <button type="submit">Enviar</button
         </form>
         """
 
@@ -48,9 +48,9 @@ def set_email():
 def get_email():
     return render_template_string("""
             {% if session['email'] %}
-                <h1>Welcome {{ session['email'] }}!</h1>
+                <h1>Bem vindo {{ session['email'] }}!</h1>
             {% else %}
-                <h1>Welcome! Please enter your email <a href="{{ url_for('set_email') }}">here.</a></h1>
+                <h1>Bem vindo! Informe seu email: <a href="{{ url_for('set_email') }}">here.</a></h1>
             {% endif %}
         """)
 
@@ -59,7 +59,7 @@ def get_email():
 def delete_email():
     # Clear the email stored in the session object
     session.pop('email', default=None)
-    return '<h1>Session deleted!</h1>'
+    return '<h1>Sessão removida!</h1>'
 
 
 if __name__ == '__main__':
