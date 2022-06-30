@@ -50,7 +50,7 @@ def get_email():
             {% if session['email'] %}
                 <h1>Bem vindo {{ session['email'] }}!</h1>
             {% else %}
-                <h1>Bem vindo! Informe seu email: <a href="{{ url_for('set_email') }}">here.</a></h1>
+                <h1>Bem vindo! Informe seu email: <a href="{{ url_for('set_email') }}">aqui.</a></h1>
             {% endif %}
         """)
 
