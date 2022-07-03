@@ -1,5 +1,7 @@
 $(function () { // quando o documento estiver pronto/carregado
 
+    meuip = sessionStorage.getItem("meuip");
+    
     // código para mapear click do botão login
     $(document).on("click", "#btLogin", function () {
         //pegar dados da tela
@@ -11,7 +13,7 @@ $(function () { // quando o documento estiver pronto/carregado
 
         // fazer requisição para o back-end
         $.ajax({
-            url: 'http://localhost:5000/login',
+            url: `http://${meuip}:5000/login`,
             type: 'POST', // TESTE COM A OPÇÃO GET no front e no back; observe o log do servidor
             dataType: 'json', // os dados são recebidos no formato json
             contentType: 'application/json', // tipo dos dados enviados

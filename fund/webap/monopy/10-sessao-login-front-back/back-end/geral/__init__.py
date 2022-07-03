@@ -11,7 +11,7 @@ from flask_cors import CORS  # permitir back receber json do front
 # configurações
 app = Flask(__name__)
 
-CORS(app)  # aplicar o cross domain
+CORS(app)  
 # caminho do arquivo de banco de dados
 path = os.path.dirname(os.path.abspath(__file__))
 arquivobd = os.path.join(path, 'pessoa.db')
@@ -29,3 +29,9 @@ Session(app)
 
 # remoção automática dos arquivos
 # https://stackoverflow.com/questions/53841909/clean-server-side-session-files-flask-session-using-filesystem
+
+# endereço DESTE servidor, que deverá ser chamado 
+# no navegador pelo front-end
+# (endereço do host liberado para as rotas)
+# meuservidor = "http://localhost"
+meuservidor = "http://192.168.5.227"

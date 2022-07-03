@@ -47,7 +47,7 @@ def atualizar(classe):
             # informar mensagem de erro
             resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
     # adicionar cabeçalho de liberação de origem
-    resposta.headers.add("Access-Control-Allow-Origin", "http://localhost:5000")
+    resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
     return resposta  # responder!
 
 ''' 

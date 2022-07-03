@@ -12,7 +12,7 @@ def listar(classe):
     # converter a lista do python para json
     resposta = jsonify(lista_jsons)
     # PERMITIR resposta para outras pedidos oriundos de outras tecnologias
-    resposta.headers.add("Access-Control-Allow-Origin", "http://localhost")
+    resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
     # permitir envio das credenciais
     resposta.headers.add("Access-Control-Allow-Credentials", "true")
     return resposta
