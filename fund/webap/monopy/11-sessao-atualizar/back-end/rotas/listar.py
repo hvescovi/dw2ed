@@ -4,15 +4,17 @@ from modelo.Pessoa import *
 @app.route("/listar/<string:classe>")
 def listar(classe):
     # obter os dados da classe informada
+    dados = None
     if classe == "Pessoa":
-        dados = db.session.query(Pessoa).all()
+      dados = db.session.query(Pessoa).all()
     # converter dados para json
     lista_jsons = [ x.json() for x in dados ]
     # converter a lista do python para json
     resposta = jsonify(lista_jsons)
-      
     # PERMITIR resposta para outras pedidos oriundos de outras tecnologias
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
+    # permitir envio das credenciais
+    resposta.headers.add("Access-Control-Allow-Credentials", "true")
     return resposta
 
 # https://stackoverflow.com/questions/2870371/why-is-jquerys-ajax-method-not-sending-my-session-cookie

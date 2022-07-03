@@ -21,6 +21,8 @@ $(function () { // quando o documento estiver pronto/carregado
                 <td>${pessoas[i].nome}</td>
                 <td>${pessoas[i].email}</td>
                 <td>${pessoas[i].telefone}</td>
+                <td><a href=# id="editar_pessoa_${pessoas[i].id}" 
+                       class="link_editar_pessoa">editar</a>
                 </tr>`;
 
             // adiciona a linha no corpo da tabela

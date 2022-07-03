@@ -9,15 +9,14 @@ def login():
     dados = request.get_json()  
     login = dados['login']
     senha = dados['senha']
-    if login == 'mylogin' and senha == '123':
+    #if login == 'mylogin' and senha == '123':
         # armazenar sessão, para informar que há login realizado
-        session[login] = "OK"
-    else:
-        resposta = jsonify({"resultado": "erro", "detalhes": "login e/ou senha inválido(s)"})        
+    session[login] = "OK"
+    #else:
+    #    resposta = jsonify({"resultado": "erro", "detalhes": "login e/ou senha inválido(s)"})        
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
-    #resposta.headers.add("Access-Control-Allow-Credentials", "true")
-    #print(" vou responder /login ok")
+    resposta.headers.add("Access-Control-Allow-Credentials", "true")
     return resposta  # responder!
 
 ''' 

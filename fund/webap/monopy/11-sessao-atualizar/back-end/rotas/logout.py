@@ -21,4 +21,7 @@ curl -X POST -d '{"login":"mylogin"}' -H "Content-Type:application/json" localho
   "detalhes": "ok", 
   "resultado": "ok"
 }
+
+
+
 '''
