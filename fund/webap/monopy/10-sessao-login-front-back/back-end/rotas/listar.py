@@ -15,8 +15,6 @@ def listar(classe):
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
     return resposta
 
-# https://stackoverflow.com/questions/2870371/why-is-jquerys-ajax-method-not-sending-my-session-cookie
-
     '''
     exemplo de teste:
     $ curl localhost:5000/listar/ExameRealizado

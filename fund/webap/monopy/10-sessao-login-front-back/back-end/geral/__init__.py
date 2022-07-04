@@ -6,7 +6,7 @@ import os
 import datetime
 from datetime import timedelta
 
-from flask_cors import CORS, cross_origin  # permitir back receber json do front
+from flask_cors import CORS
 
 # configurações
 app = Flask(__name__)
@@ -15,7 +15,7 @@ app = Flask(__name__)
 # no navegador pelo front-end
 # (endereço do host liberado para as rotas)
 #meuservidor = "http://192.168.5.227"
-meuservidor = "http://localhost"
+meuservidor = "http://localhost:81"
 
 CORS(app)  
 
@@ -30,7 +30,7 @@ db = SQLAlchemy(app)
 app.secret_key = '$#EWFGHJUI*&DEGBHYJU&Y%T#RYJHG%##RU&U'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minute=2)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=2)
 Session(app)
 
 # remoção automática dos arquivos

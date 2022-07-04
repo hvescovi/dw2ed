@@ -18,11 +18,9 @@ $(function () { // quando o documento estiver pronto/carregado
             dataType: 'json', // os dados são recebidos no formato json
             contentType: 'application/json', // tipo dos dados enviados
             data: dados, // estes são os dados enviados
-           // xhrFields: { withCredentials: true },
-           // crossdomain: true,
             success: loginOk, // chama a função listar para processar o resultado
-            error: function (xhr, status, error) {
-                alert("Erro na conexão, verifique o backend. " + xhr.responseText + " - " + status + " - " + error);
+            error: function () {
+                alert("Erro na conexão, verifique o backend. ");
                 // https://api.jquery.com/jquery.ajax/
             }
         });

@@ -1,2 +1,3 @@
-# nada mais
-# o conteúdo está em __init__.py
+# nada mais existe aqui
+# o conteúdo agora está em __init__.py
+# foi apenas uma decisão de projeto para tentar simplificá-lo mais

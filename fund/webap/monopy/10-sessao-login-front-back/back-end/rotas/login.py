@@ -16,8 +16,6 @@ def login():
         resposta = jsonify({"resultado": "erro", "detalhes": "login e/ou senha inválido(s)"})        
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
-    #resposta.headers.add("Access-Control-Allow-Credentials", "true")
-    #print(" vou responder /login ok")
     return resposta  # responder!
 
 ''' 
