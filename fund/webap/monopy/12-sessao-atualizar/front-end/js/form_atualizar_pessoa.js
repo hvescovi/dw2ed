@@ -18,12 +18,13 @@ $(function () { // quando o documento estiver pronto/carregado
         // fazer requisição para o back-end
         $.ajax({
             url: `http://${meuip}:5000/atualizar/Pessoa`,
-            type: 'PUT',
+            type: 'POST',
             dataType: 'json', // os dados são recebidos no formato json
-            contentType: 'application/json', // tipo dos dados enviados
+            //contentType: 'application/json', // tipo dos dados enviados
+            contentType: 'text/plain', // tipo dos dados enviados
             data: dados, // estes são os dados enviados
             xhrFields: { withCredentials: true },
-            crossDomain: true,
+            //crossDomain: true,
             success: pessoaAtualizada, // chama a função listar para processar o resultado
             error: erroAoAtualizar
         });
@@ -34,7 +35,7 @@ $(function () { // quando o documento estiver pronto/carregado
                 // guarda o id na sessão
                 sessionStorage.removeItem('id_pessoa');
                 // encaminha para a página de edição da pessoa
-                window.location = "listar_pessoa.html";
+                window.location = "listar.html";
             } else {
                 // informar mensagem de erro
                 alert("ERRO na atualização: " + retorno.resultado + ":" + retorno.detalhes);

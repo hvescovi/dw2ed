@@ -16,10 +16,10 @@ $(function () { // quando o documento estiver pronto/carregado
             url: `http://${meuip}:5000/login`,
             type: 'POST', // TESTE COM A OPÇÃO GET no front e no back; observe o log do servidor
             dataType: 'json', // os dados são recebidos no formato json
-            contentType: 'application/json', // tipo dos dados enviados
+            contentType: 'text/plain', // tipo dos dados enviados - text/plain para não disparar preflight
+            //contentType: 'application/json', // tipo dos dados enviados
             data: dados, // estes são os dados enviados
-            xhrFields: { withCredentials: true },
-            crossdomain: true,
+            xhrFields: { withCredentials: true }, // para que os cookies sejam enviados
             success: loginOk, // chama a função listar para processar o resultado
             error: function (xhr, status, error) {
                 alert("Erro na conexão, verifique o backend. " + xhr.responseText + " - " + status + " - " + error);

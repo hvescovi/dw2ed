@@ -6,7 +6,7 @@ def login():
     # preparar uma resposta otimista
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações do novo objeto
-    dados = request.get_json()  
+    dados = request.get_json(force=True)  
     login = dados['login']
     senha = dados['senha']
     if login == 'mylogin' and senha == '123':

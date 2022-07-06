@@ -3,12 +3,12 @@ from modelo.Pessoa import *
 
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
-@app.route("/atualizar/<string:classe>", methods=['PUT'])
+@app.route("/atualizar/<string:classe>", methods=['POST'])
 def atualizar(classe):
     # preparar uma resposta otimista
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações do novo objeto
-    dados = request.get_json()  
+    dados = request.get_json(force=True)  
     # não foi passado login?
     if 'login' not in dados:
       resposta = jsonify({"resultado": "erro", "detalhes": "ausência de login na requisição"})

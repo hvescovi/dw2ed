@@ -3,7 +3,7 @@ from modelo.Pessoa import *
 
 @app.route("/listar/<string:classe>", methods=['POST'])
 def listar(classe):
-    dados = request.get_json()  
+    dados = request.get_json(force=True)  
     try:  
         # obtem login da sessao
         print(dados['login'])
@@ -19,6 +19,7 @@ def listar(classe):
     except Exception as e:  # em caso de erro...
         # informar mensagem de erro
         resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
+        print("ERRO: "+str(e))
       
     # PERMITIR resposta para outras pedidos oriundos de outras tecnologias
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
