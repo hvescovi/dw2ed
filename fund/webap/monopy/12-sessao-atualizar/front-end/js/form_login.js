@@ -16,7 +16,8 @@ $(function () { // quando o documento estiver pronto/carregado
             url: `http://${meuip}:5000/login`,
             type: 'POST', // TESTE COM A OPÇÃO GET no front e no back; observe o log do servidor
             dataType: 'json', // os dados são recebidos no formato json
-            contentType: 'application/json', // tipo dos dados enviados
+            contentType: 'text/plain', // tipo dos dados enviados
+            //contentType: 'application/json', // tipo dos dados enviados
             data: dados, // estes são os dados enviados
             xhrFields: { withCredentials: true },
             success: loginOk, // chama a função listar para processar o resultado

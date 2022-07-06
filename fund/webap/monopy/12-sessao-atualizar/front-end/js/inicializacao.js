@@ -9,5 +9,5 @@ $(function () { // quando o documento estiver pronto/carregado
 
     sessionStorage.setItem("meuip",meuip); // guarda na sessão
 
-    window.location = "principal.html"; // vai para a página principal do sistema
+    //window.location = "principal.html"; // vai para a página principal do sistema
 });
