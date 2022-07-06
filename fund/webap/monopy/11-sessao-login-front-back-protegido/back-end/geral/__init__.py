@@ -16,7 +16,8 @@ app = Flask(__name__)
 # (endereço do host liberado para as rotas)
 #meuservidor = "http://192.168.5.227"
 #meuservidor = "http://localhost:81"
-meuservidor = "http://127.0.0.1:5500"
+# meuservidor = "http://127.0.0.1:5500" live server - fica piscando o javascript
+meuservidor = "http://localhost:8080" # preview in web server - funciona bem
 
 
 CORS(app, supports_credentials = True)  

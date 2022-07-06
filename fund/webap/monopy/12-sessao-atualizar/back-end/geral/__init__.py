@@ -16,8 +16,8 @@ app = Flask(__name__)
 # (endereço do host liberado para as rotas)
 #meuservidor = "http://192.168.5.227"
 # meuservidor = "http://localhost"
-meuservidor = "http://127.0.0.1:5500"
-
+#meuservidor = "http://127.0.0.1:5500"
+meuservidor = "http://localhost:8080" # extensão do vscode: preview on web server
 
 CORS(app)  
 
