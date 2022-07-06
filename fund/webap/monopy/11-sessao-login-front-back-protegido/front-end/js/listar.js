@@ -9,10 +9,10 @@ $(function () { // quando o documento estiver pronto/carregado
         url: `http://${meuip}:5000/listar/Pessoa`, // uso de template string
         method: 'POST',
         dataType: 'json', // os dados são recebidos no formato json
-        contentType: 'application/json', // tipo dos dados enviados
+        //contentType: 'application/json', // tipo dos dados enviados
+        contentType: 'text/plain', // tipo dos dados enviados
         data: dados, // estes são os dados enviados
         xhrFields: { withCredentials: true },
-        crossDomain: true,
         success: listar, // chama a função listar para processar o resultado
         error: function () {
             alert("erro ao ler dados, verifique o backend");
