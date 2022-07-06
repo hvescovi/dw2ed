@@ -1,0 +1,38 @@
+@startuml C4_Elements
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include DEVICONS/python.puml
+!include DEVICONS/nginx.puml
+!include DEVICONS/sqllite.puml
+!include DEVICONS/terminal.puml
+!include DEVICONS/html5.puml
+!include DEVICONS/bootstrap.puml
+!include DEVICONS/javascript.puml
+!include FONTAWESOME/users.puml
+
+LAYOUT_WITH_LEGEND()
+
+Person(usuario, "Usuário", "Pessoa que possui a foto original", $sprite="users")
+
+System_Boundary(c1, "sistema web") {
+  Container(python, "Servidor web dinâmico", "python/flask/sqlalchemy", "Recebe a foto original e o arquivo que contém o segredo", $sprite="python")
+  Container(html5, "HTML", "HTML/bootstrap", "páginas de frontend", $sprite="html5")
+  Container(javascript, "JavaScript", "códigos JavaScript", "acesso do front ao back", $sprite="javascript")
+}
+
+System_Ext(nginx, "Servidor web estático", "nginx", "hospeda HTML, css e js", $sprite="nginx")
+System_Ext(sqlite, "Servidor de banco de dados", "SQLite", "persiste os dados em um único arquivo", $sprite="sqllite")
+
+Rel(usuario, nginx, "get /")
+Rel(nginx, usuario, "index.html, inicializacao.js")
+Rel(javascript, python, "get :5000/listar/Pessoa")
+Rel(python, javascript, "{resultado:ok, detalhes:pessoas(json)}")
+Rel(python, sqlite, "query(Pessoa).all()")
+Rel(sqlite, python, "lista de pessoas")
+Rel(nginx, javascript, "acessa")
+Rel(nginx, html5, "acessa")
+Rel(html5, javascript, "inclui")
+
+@enduml
