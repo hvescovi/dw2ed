@@ -16,8 +16,7 @@ def login():
         resposta = jsonify({"resultado": "erro", "detalhes": "login e/ou senha inválido(s)"})        
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
-    resposta.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-    resposta.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    # permitir o envio dos cookies
     resposta.headers.add('Access-Control-Allow-Credentials', 'true')
     return resposta  # responder!
 

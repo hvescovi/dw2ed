@@ -10,7 +10,7 @@ $(function () { // quando o documento estiver pronto/carregado
         method: 'POST',
         dataType: 'json', // os dados são recebidos no formato json
         //contentType: 'application/json', // tipo dos dados enviados
-        contentType: 'text/plain', // tipo dos dados enviados
+        contentType: 'text/plain', // tipo dos dados enviados: PLAIN, para não dar preflight
         data: dados, // estes são os dados enviados
         xhrFields: { withCredentials: true },
         success: listar, // chama a função listar para processar o resultado

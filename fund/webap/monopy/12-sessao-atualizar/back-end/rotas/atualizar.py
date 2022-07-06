@@ -50,12 +50,9 @@ def atualizar(classe):
             resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
     
     # adicionar cabeçalho de liberação de origem
-    resposta.headers.add("Access-Control-Allow-Credentials", "true")
-    #resposta.headers['Access-Control-Allow-Credentials'] = 'true'
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
-    resposta.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    resposta.headers.add('Access-Control-Allow-Methods', 'POST,PUT,OPTIONS')
-    # permitir envio das credenciais
+    # permitir envio do cookie
+    resposta.headers.add("Access-Control-Allow-Credentials", "true")
     
     return resposta  # responder!
 

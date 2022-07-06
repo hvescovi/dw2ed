@@ -1,6 +1,4 @@
-$(function () {
-
-    
+$(function () { 
     // obtém login da sessão
     var login = sessionStorage.getItem('login');
     var mensagem = "";

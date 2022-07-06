@@ -15,7 +15,9 @@ app = Flask(__name__)
 # no navegador pelo front-end
 # (endereço do host liberado para as rotas)
 #meuservidor = "http://192.168.5.227"
-meuservidor = "http://localhost"
+# meuservidor = "http://localhost"
+meuservidor = "http://127.0.0.1:5500"
+
 
 CORS(app)  
 

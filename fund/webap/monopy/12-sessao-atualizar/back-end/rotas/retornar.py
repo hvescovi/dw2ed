@@ -23,6 +23,9 @@ def retornar(classe, id):
     
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
+    # permitir envio do cookie
+    resposta.headers.add("Access-Control-Allow-Credentials", "true")
+    
     return resposta  # responder!
 
 '''

@@ -11,9 +11,9 @@ def listar(classe):
     lista_jsons = [ x.json() for x in dados ]
     # converter a lista do python para json
     resposta = jsonify(lista_jsons)
-    # PERMITIR resposta para outras pedidos oriundos de outras tecnologias
+    # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
-    # permitir envio das credenciais
+    # permitir envio do cookie
     resposta.headers.add("Access-Control-Allow-Credentials", "true")
     return resposta
 

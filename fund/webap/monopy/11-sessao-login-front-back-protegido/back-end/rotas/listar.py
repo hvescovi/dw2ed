@@ -6,9 +6,7 @@ def listar(classe):
     dados = request.get_json(force=True)  
     try:  
         # obtem login da sessao
-        print(dados['login'])
         login = session[dados['login']]
-        print(login)
         # obter os dados da classe informada
         if classe == "Pessoa":
             dados = db.session.query(Pessoa).all()
@@ -21,10 +19,9 @@ def listar(classe):
         resposta = jsonify({"resultado": "erro", "detalhes": str(e)})
         print("ERRO: "+str(e))
       
-    # PERMITIR resposta para outras pedidos oriundos de outras tecnologias
+    # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
-    resposta.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-    resposta.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    # permitir o envio dos cookies
     resposta.headers.add('Access-Control-Allow-Credentials', 'true')
     return resposta
 

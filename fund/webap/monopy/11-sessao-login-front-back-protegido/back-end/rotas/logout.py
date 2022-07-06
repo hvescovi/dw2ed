@@ -11,6 +11,8 @@ def login():
     session.pop(dados['login'], default=None) # caso não exista, seta para None
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", meuservidor)
+    # permitir o envio dos cookies
+    resposta.headers.add('Access-Control-Allow-Credentials', 'true')
     return resposta  # responder!
 
 ''' 
