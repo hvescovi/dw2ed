@@ -2,7 +2,7 @@ from geral.config import *
 from geral.cripto import *
 from modelo.pessoa import *
 
-@app.route("/login", methods=['GET'])
+@app.route("/login", methods=['POST'])
 def login():
     # preparar uma resposta otimista
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
@@ -26,7 +26,7 @@ def login():
 ''' 
 RESULTADOS DE TESTES:
 
-$ curl -c /tmp/cookie -X GET -d '{"login":"josilva@gmail.com", "senha":"joao123"}' localhost:5000/login
+$ curl -c /tmp/cookie -X POST -d '{"login":"josilva@gmail.com", "senha":"joao123"}' localhost:5000/login
 {
   "detalhes": "ok", 
   "resultado": "ok"

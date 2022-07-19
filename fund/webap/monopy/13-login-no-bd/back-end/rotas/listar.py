@@ -1,5 +1,5 @@
 from geral.config import *
-from modelo import *
+from modelo.pessoa import *
 
 @app.route("/listar/<string:classe>")
 def listar(classe):
