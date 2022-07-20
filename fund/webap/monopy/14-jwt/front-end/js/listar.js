@@ -10,16 +10,12 @@ $(function () { // quando o documento estiver pronto/carregado
         // obtém a JWT
         jwt = sessionStorage.getItem("JWT");
 
-        //alert(jwt);
         $.ajax({
             url: `http://${meuip}:5000/listar/Pessoa`,
             method: 'GET',
             dataType: 'json', // os dados são recebidos no formato json
             contentType: 'text/plain',
-            headers: {
-                Authorization: 'Bearer ' + jwt
-            },
-
+            headers: { Authorization: 'Bearer ' + jwt },
             success: listar, // chama a função listar para processar o resultado
             error: function () {
                 alert("erro ao ler dados, verifique o backend");
