@@ -12,7 +12,7 @@ $(function () { // quando o documento estiver pronto/carregado
 
         $.ajax({
             url: `http://${meuip}:5000/listar/Pessoa`,
-            method: 'GET',
+            method: 'POST',
             dataType: 'json', // os dados são recebidos no formato json
             contentType: 'text/plain',
             headers: { Authorization: 'Bearer ' + jwt },

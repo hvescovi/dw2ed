@@ -1,7 +1,7 @@
 from geral.config import *
 from modelo.pessoa import *
 
-@app.route("/listar/<string:classe>", methods=['GET'])
+@app.route("/listar/<string:classe>", methods=['POST'])
 @jwt_required()
 def listar(classe):
     
