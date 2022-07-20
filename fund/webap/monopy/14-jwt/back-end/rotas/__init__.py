@@ -1,1 +1,1 @@
-__all__ = ['listar', 'login', 'logout']
+__all__ = ['listar', 'login']
