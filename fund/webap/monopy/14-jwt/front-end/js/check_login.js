@@ -28,8 +28,9 @@ $(function () {
 
     // código para mapear click do botão de logout
     $(document).on("click", "#linkLogout", function () {
-        // remove item da sessao
+        // remove itens da sessao
         sessionStorage.removeItem('login');
+        sessionStorage.removeItem('jwt');
         // atualiza a tela
         window.location = 'principal.html';
     });

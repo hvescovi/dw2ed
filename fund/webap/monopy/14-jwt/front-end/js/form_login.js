@@ -14,9 +14,9 @@ $(function () { // quando o documento estiver pronto/carregado
         // fazer requisição para o back-end
         $.ajax({
             url: `http://${meuip}:5000/login`,
-            type: 'POST', 
+            method: 'POST', 
             dataType: 'json', // os dados são recebidos no formato json
-            //contentType: 'text/plain', // tipo dos dados enviados
+            contentType: 'text/plain', // tipo dos dados enviados
             //contentType: 'application/json', // tipo dos dados enviados
             data: dados, // estes são os dados enviados
             success: loginOk, // chama a função listar para processar o resultado
@@ -30,7 +30,7 @@ $(function () { // quando o documento estiver pronto/carregado
                 // guarda na sessao o login
                 sessionStorage.setItem('login', login);
                 // guarda na sessao da JWT
-                sessionStorage.setItem('JWT', retorno.detalhes);
+                sessionStorage.setItem('jwt', retorno.detalhes);
                 // encaminha para a página principal
                 window.location = 'principal.html';
             } else {
@@ -42,3 +42,5 @@ $(function () { // quando o documento estiver pronto/carregado
     });
 
 });
+
+// https://flask-jwt-extended.readthedocs.io/en/stable/token_locations/

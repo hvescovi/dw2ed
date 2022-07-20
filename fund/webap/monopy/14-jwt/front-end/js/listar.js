@@ -8,7 +8,7 @@ $(function () { // quando o documento estiver pronto/carregado
     if (login !== null) {
 
         // obtém a JWT
-        jwt = sessionStorage.getItem("JWT");
+        jwt = sessionStorage.getItem("jwt");
 
         $.ajax({
             url: `http://${meuip}:5000/listar/Pessoa`,

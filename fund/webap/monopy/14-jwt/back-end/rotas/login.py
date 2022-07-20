@@ -11,16 +11,17 @@ def login():
     
     encontrado = Pessoa.query.filter_by(email=login, senha=cifrar(senha)).first()
     if encontrado is None: 
-        return jsonify({"resultado": "erro", "detalhes":"usuario ou senha incorreto(s)"}), 401
+        resposta = jsonify({"resultado": "erro", "detalhes":"usuario ou senha incorreto(s)"})
 
-    # códigos HTTP:
-    # https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status        
+    else:
+        # códigos HTTP:
+        # https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status        
 
-    # criar a json web token (JWT)
-    access_token = create_access_token(identity=login)
+        # criar a json web token (JWT)
+        access_token = create_access_token(identity=login)
 
-    # retornar
-    resposta =  jsonify({"resultado":"ok", "detalhes":access_token}) 
+        # retornar
+        resposta =  jsonify({"resultado":"ok", "detalhes":access_token}) 
     
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*") #meuservidor)
