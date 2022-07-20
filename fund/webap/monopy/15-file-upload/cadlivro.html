@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang = "pt">
+<head>
+  <title>MyLibrary</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">	
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">	
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="geral">
+  <header>
+		<nav class="navbar navbar-default navbar-expand-md justify-content-center">
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#bot">
+				<span class="material-icons">menu</span>
+			</button>
+      <a href="index.html" class="navbar-brand">
+        <img id="logo" src="Imagens/icone.png" alt="MyLibrary"> MyLibrary 
+      </a>
+      <div class="navbar-collapse collapse justify-content-end" id="bot">
+        <ul class="navbar-nav mx-auto text-center" id="cores1">
+          <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item active"><a class="nav-link" href="biblioteca.html">Minha Biblioteca</a></li>
+          <li class="nav-item active"><a class="nav-link" href="cadlivro.html">Cadastrar Livro</a></li>
+          <li class="nav-item active"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item active"><a class="nav-link" href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="container-fluid" id="imagensformulario">
+    <div class="row" id="coluna">
+      <div class="col-12">
+        <br>
+        <h1 style="text-align: center;">CADASTRE UM NOVO LIVRO</h1><br>
+
+        <form onsubmit="return false;" enctype="multipart/form-data" id="meuform">
+         
+          <div class="form-group">
+            <label>Foto da pessoa</label>  
+            <input class="form-control" type="file" name="capa" id="campoCapa_do_Livro">
+            <span id="nomearquivo"></span>
+          </div>
+          
+          <div class="form-group">
+            <label>ISBN</label>
+            <input class="form-control" type="number" name="isbn" id="campoISBN" placeholder="Digite o ISBN do livro" >
+          </div>
+          <div class="form-group">
+            <label>Nome do Livro</label>
+            <input class="form-control" type="text" name="nomelivro" id="campoNome_do_livro" placeholder="Digite o nome do livro" >
+          </div>
+          <div class="form-group">
+            <label>Autor</label>
+            <input class="form-control" type="text" name="autor" id="campoAutor" placeholder="Digite o nome do autor" >
+          </div>
+          <div class="form-group">
+            <label>Páginas</label>
+            <input class="form-control" type="number" name="paginas" id="campoPaginas" placeholder="Digite a quantidade de páginas" >
+          </div>
+          <div class="form-group">
+            <label>Editora</label>
+            <input class="form-control" type="text" name="editora" id="campoEditora" placeholder="Digite o nome da editora" >
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <br>
+            <select class="form-control" name="Status" id="campoStatus">
+              <option value="Lendo">Lendo</option>
+              <option value="Quero Ler">Quero Ler</option>
+              <option value="Lido">Lido</option>
+              <option value="Parei de Ler">Parei de Ler</option>
+            </select>
+          </div>
+          <div class="from-group">
+            <button id="btIncluirLivros" class="btn btn-warning">Cadastre</button>
+            <br><br><br><br><br>
+          </div>
+       </form>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+    <footer class="page-footer font-small teal pt-4">
+      <div class="row">
+        <div class="col-md-6 mt-md-0 mt-3">
+          <h5 class="text-uppercase font-weight-bold">Instituto Federal Catarinense</h5>
+          <p>Marcos Vinicios Borgert, Matheus Bastos Gabriel e Matheus Kauan Sutil Stopassola</p>
+        </div>  
+      <div class="footer-copyright">
+        <p>© 2021 Copyright</p>
+      </div>
+      </div>
+    </footer>
+<script src="cadliv.js"></script>
+</body>
+</html>
