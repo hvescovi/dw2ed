@@ -62,25 +62,22 @@ https://cursos.alura.com.br/forum/topico-php-startup-unable-to-load-dynamic-libr
         // adiciona essa pessoa json em um array
         $pessoas[] = json_decode($pessoaj, true);
 
-        //print $row['lastname'] . "\n";
+        //print $row['nome'] . "\n";
     }
 
-    // converte o array de php para json
-    //$resultado = json_encode($pessoas, JSON_PRETTY_PRINT);
-
-    // merge dos jsons
+    // cria dois vetores que serão partes da resposta
     $parte1 = array('resultado' => 'ok');
     $parte2 = array('detalhes' => $pessoas);
-    $resposta = json_encode(
-                    array_merge(
-                        $parte1,
-                        $parte2
-                    )
-                );
-
+    // faz a junção das duas partes
+    $tudo = array_merge($parte1, $parte2);
+    // transforma em json
+    $resposta = json_encode($tudo);
     // retorna/exibe
     echo $resposta;
 ?>
+
+
+
 
 
 <?php
