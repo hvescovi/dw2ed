@@ -16,6 +16,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+arquivobd
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # remover warnings
 db = SQLAlchemy(app)
 
+# comando mágico necessário a partir do python 10
+app.app_context().push()
+
 class Foo(db.Model):
 
     id = db.Column(
