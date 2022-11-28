@@ -1,10 +1,13 @@
-import regras
+#import regras
+from regras import *
 
 class Pessoa:
   def __init__(self, nome="", idade=0):
     self.nome = nome
-    if idade > regras.IDADE_MAXIMA:
-      self.idade = regras.IDADE_MAXIMA
+    #if idade > regras.IDADE_MAXIMA:
+    if idade > IDADE_MAXIMA:
+      #self.idade = regras.IDADE_MAXIMA
+      self.idade = IDADE_MAXIMA
     else:
       self.idade = idade
   def __str__(self):
