@@ -14,7 +14,7 @@ We must enable the sqlite3 extension in the php.ini file.
 
 https://cursos.alura.com.br/forum/topico-php-startup-unable-to-load-dynamic-library-pdo_sqlite-123546
 
-    $ sudo apt install php7.4-sqlite3
+    $ sudo apt install php-sqlite3
 
 */
 ?>
@@ -76,5 +76,5 @@ $ curl localhost:8000/backend-listar.php
         "telefone": "47 98822 2531"
     }
 ]
-
+*/
 ?>

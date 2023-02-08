@@ -25,3 +25,5 @@ def listar_pessoas():
     return render_template("listar-pessoas.html", listagem = pessoas_em_python)
 
 app.run(debug=True, port=4999)
+
+# abrir navegador em localhost:4999

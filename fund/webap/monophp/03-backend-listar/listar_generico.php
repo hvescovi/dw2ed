@@ -90,11 +90,11 @@ php -S localhost:8000
 
 - resultado de testes:
 
-$ curl localhost:8000/listar_generico.php/listar/Pessoa
+$ curl localhost:8000/listar2.php/listar/Pessoa
 
 {"resultado":"ok","detalhes":[{"id":"1","nome":"Tiago","email":"ti@gmail.com","telefone":"123123123"},{"id":"2","nome":"Maria Oliveira","email":"molive@gmail.com","telefone":"47 98822 2531"}]}
 
-$ curl localhost:8000/listar_generico.php/listar/Pessoa | json_pp
+$ curl localhost:8000/listar2.php/listar/Pessoa | json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100   195    0   195    0     0   190k      0 --:--:-- --:--:-- --:--:--  190k

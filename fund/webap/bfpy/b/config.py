@@ -12,3 +12,5 @@ arquivobd = os.path.join(path, 'pessoas.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+arquivobd
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # remover warnings
 db = SQLAlchemy(app)
+
+app.app_context().push() # compatibilidade python versão > 10
