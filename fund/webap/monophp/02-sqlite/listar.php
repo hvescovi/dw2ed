@@ -60,7 +60,7 @@ php -S localhost:8000
 
 - resultado do teste:
 
-$ curl localhost:8000/backend-listar.php
+$ curl localhost:8000/listar.php
 
 [
     {
