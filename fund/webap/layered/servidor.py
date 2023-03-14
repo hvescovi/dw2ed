@@ -2,7 +2,7 @@
 from flask import Flask, render_template
 import os
 from modelo import Pessoa
-import DAO
+import DAO as dao
 
 # configurações
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def inicio():
 @app.route("/listar_pessoas")
 def listar_pessoas():
     # obter as pessoas do cadastro
-    pessoas = DAO.retornarPessoas()
+    pessoas = dao.retornarPessoas()
     # fornecer a lista de pessoas para a página que exibe as pessoas
     return render_template("listar-pessoas.html", listagem = pessoas)
 
